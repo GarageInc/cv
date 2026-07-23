@@ -1,35 +1,12 @@
-import { useRef, useCallback, useState } from 'react';
+import { useCallback } from 'react';
 import { resumeData } from './data/resumeData';
 
 function App() {
-  const resumeRef = useRef<HTMLDivElement>(null);
-  const [exporting, setExporting] = useState(false);
-
-  const exportPDF = useCallback(async () => {
-    setExporting(true);
-    try {
-      const html2pdf = (await import('html2pdf.js')).default;
-      const element = resumeRef.current;
-      if (!element) return;
-
-      element.classList.add('pdf-mode');
-
-      await html2pdf()
-        .set({
-          margin: [0.3, 0.4, 0.3, 0.4],
-          filename: 'Rinat_Fullstack_Engineer_Resume.pdf',
-          image: { type: 'jpeg', quality: 0.98 },
-          html2canvas: { scale: 2, useCORS: true, logging: false },
-          jsPDF: { unit: 'in', format: 'a4', orientation: 'portrait' },
-          pagebreak: { mode: ['avoid-all', 'css', 'legacy'] },
-        })
-        .from(element)
-        .save();
-
-      element.classList.remove('pdf-mode');
-    } finally {
-      setExporting(false);
-    }
+  // Uses the browser's own print-to-PDF pipeline so the exported file contains
+  // real, selectable text. Canvas-based exporters (html2pdf/html2canvas) emit a
+  // rasterized image, which applicant tracking systems parse as a blank page.
+  const exportPDF = useCallback(() => {
+    window.print();
   }, []);
 
   return (
@@ -40,6 +17,7 @@ function App() {
         </a>
         <nav className="header-nav" aria-label="Resume sections">
           <a href="#summary">Summary</a>
+          <a href="#projects">Projects</a>
           <a href="#experience">Experience</a>
           <a href="#skills">Skills</a>
           <a href="#education">Education</a>
@@ -48,7 +26,6 @@ function App() {
         <button
           onClick={exportPDF}
           className="export-btn"
-          disabled={exporting}
           aria-label="Download resume as PDF"
         >
           <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true">
@@ -56,19 +33,17 @@ function App() {
             <polyline points="7 10 12 15 17 10" />
             <line x1="12" y1="15" x2="12" y2="3" />
           </svg>
-          {exporting ? 'Generating...' : 'PDF'}
+          PDF
         </button>
       </header>
 
-      <main ref={resumeRef} className="resume-page">
+      <main className="resume-page">
         {/* Document Header */}
         <div className="doc-header" id="top">
           <h1>{resumeData.name}</h1>
           <p className="doc-title">{resumeData.title}</p>
           <address className="doc-contacts">
             <a href={`mailto:${resumeData.contact.email}`}>{resumeData.contact.email}</a>
-            <span className="separator">|</span>
-            <a href={`tel:${resumeData.contact.phone}`}>{resumeData.contact.phone}</a>
             <span className="separator">|</span>
             <span>{resumeData.location}</span>
             <span className="separator">|</span>
@@ -81,7 +56,6 @@ function App() {
           <button
             onClick={exportPDF}
             className="doc-export-btn"
-            disabled={exporting}
             aria-label="Export resume as PDF"
           >
             <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true">
@@ -90,7 +64,7 @@ function App() {
               <line x1="12" y1="18" x2="12" y2="12" />
               <polyline points="9 15 12 18 15 15" />
             </svg>
-            {exporting ? 'Generating PDF...' : 'Export Resume in PDF'}
+            Export Resume in PDF
           </button>
         </div>
 
@@ -116,6 +90,22 @@ function App() {
             </div>
           ))}
         </div>
+
+        {/* Selected Projects */}
+        <section className="doc-section" id="projects">
+          <h2 className="doc-section-title">Selected Products Shipped</h2>
+          <ul className="doc-highlights">
+            {resumeData.projects.map((p, i) => (
+              <li key={i}>
+                <a href={p.url} target="_blank" rel="noopener noreferrer">
+                  <strong>{p.name}</strong>
+                </a>
+                {' — '}
+                {p.description}
+              </li>
+            ))}
+          </ul>
+        </section>
 
         {/* Work Experience */}
         <section className="doc-section" id="experience">
@@ -197,10 +187,6 @@ function App() {
             <div className="contact-item">
               <span className="contact-item-label">Email</span>
               <a href={`mailto:${resumeData.contact.email}`} className="contact-item-value">{resumeData.contact.email}</a>
-            </div>
-            <div className="contact-item">
-              <span className="contact-item-label">Phone</span>
-              <a href={`tel:${resumeData.contact.phone}`} className="contact-item-value">{resumeData.contact.phone}</a>
             </div>
             <div className="contact-item">
               <span className="contact-item-label">Telegram</span>
