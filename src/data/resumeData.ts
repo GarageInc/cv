@@ -35,7 +35,7 @@ export interface Project {
 
 export const resumeData = {
   name: 'Rinat Fihtengolts',
-  title: 'Senior Fullstack Engineer | TypeScript End-to-End · React Trading UIs · Node/Bun Services | WebSockets, REST/OpenAPI, PostgreSQL, Redis, Kafka | Web3: EVM/Solana/Cosmos, viem/ethers · Rust',
+  title: 'Senior Fullstack / Backend Engineer · Tech Lead | Rust (Tokio, async, highload services) · Node.js/Bun · React/TypeScript | gRPC, WebSockets, REST/OpenAPI, PostgreSQL, Redis, Kafka/RabbitMQ | Web3: EVM/Solana/Cosmos · AI/LLM',
   location: 'Dubai, UAE',
 
   contact: {
@@ -46,12 +46,16 @@ export const resumeData = {
   },
 
   summary: [
-    'Senior Fullstack Engineer with 11+ years of experience, deeply specialized in TypeScript across both frontend and backend, building real-time trading and fintech products end-to-end.',
-    'Own features from React trading UIs fed by live WebSocket order books and price feeds, through the REST/WebSocket API contracts, event-driven ingestion pipelines, and PostgreSQL/Redis data layers behind them.',
+    'Fullstack Engineer and Tech Lead with 13+ years of experience. For the last 4 years Rust (Tokio, async, highload microservices, stream and queue processing) has been my primary language for loaded backends, alongside product fullstack work on Node.js/NestJS and React/Next.js/TypeScript.',
+    'Own features from React trading UIs fed by live WebSocket order books and price feeds, through the gRPC/REST/WebSocket API contracts, event-driven ingestion pipelines, and PostgreSQL/Redis data layers behind them.',
+    'Take products from zero to production and real users — solo and in teams; grew teams from 1 to 8–10 engineers and shipped products reaching 120–150k MAU under sustained load. Heavy AI use in development (OpenAI/GPT, Claude Code, coding agents, RAG) with rigorous review of generated code.',
     'Comfortable in small, fully remote teams with high ambiguity — rapid prototyping, rigorous testing and CI quality gates, and a bias for shipping. Web3-native: on-chain indexing, smart-contract ↔ off-chain bridging, and client-side wallet integration.',
   ],
 
   highlights: [
+    'Wrote high-load Rust backend services (Tokio, async) for event-stream processing with at-least-once delivery guarantees and idempotent writes; migrated critical services from Node.js to Rust for throughput and latency predictability',
+    'Built queue-driven pipelines on RabbitMQ / Redis Streams / pgboss with backpressure and graceful shutdown, dead-letter queues for failed messages, and Prometheus/Grafana metrics',
+    'Implemented real-time transport over gRPC and WebSockets for trading and Telegram bots — quote streams, trade execution and notifications',
     'Built React trading interfaces driven by live WebSocket streams — order books, price feeds, execution status — optimized for lag-free rendering under heavy market data load',
     'Designed and shipped TypeScript backend services (Node/NestJS): REST + WebSocket APIs, background workers, and event-driven pipelines ingesting pricing and account data',
     'Built EVM/Solana transaction indexers and parsers bridging on-chain events into off-chain services, backed by PostgreSQL, Redis caching/pub-sub, and ClickHouse analytics',
@@ -60,7 +64,8 @@ export const resumeData = {
   ],
 
   achievements: [
-    { metric: '11+', label: 'Years Fullstack Engineering' },
+    { metric: '13+', label: 'Years Fullstack Engineering' },
+    { metric: '4 yrs', label: 'Rust in Production' },
     { metric: '50k+', label: 'Users — Shogun Trading Bot' },
     { metric: '$6M+', label: 'Cross-chain Swap Volume' },
     { metric: '8+', label: 'Chains in Production' },
@@ -98,6 +103,11 @@ export const resumeData = {
       description: 'AI-assisted market risk analytics — LLM/RAG pipelines over market and on-chain data feeding a React dashboard.',
     },
     {
+      name: 'github.com/GarageInc/stream-consumer',
+      url: 'https://github.com/GarageInc/stream-consumer',
+      description: 'Rust code sample — Tokio-based stream consumer with at-least-once processing, idempotent writes, backpressure and graceful shutdown.',
+    },
+    {
       name: 'usedesk.com',
       url: 'https://usedesk.com',
       description: 'SaaS support platform — real-time React messaging widgets, socket-proxy chat broker, public/internal APIs.',
@@ -120,11 +130,14 @@ export const resumeData = {
       totalDuration: '3 years 1 month',
       roles: [
         {
-          title: 'Senior Fullstack Engineer (Team Lead)',
+          title: 'Staff Engineer / Team Lead',
           period: 'May 2024 — Present',
           location: 'Dubai, UAE',
           highlights: [
-            'Lead a fully remote, cross-functional team of 7 engineers plus QA and DevOps, owning Web3 product delivery end-to-end — React frontends, TypeScript services, and the data layer between them.',
+            'Lead a fully remote, cross-functional team of 5–7 engineers plus QA, DevOps and PM, owning Web3 product delivery end-to-end — architecture, planning, risk management, resourcing and production delivery.',
+            'Wrote high-load Rust services (Tokio, async) processing event streams with at-least-once guarantees and idempotent writes; progressively migrated performance-critical Node.js services to Rust for throughput and predictable latency.',
+            'Built queue and stream pipelines on RabbitMQ / Redis Streams / pgboss with backpressure and graceful shutdown, DLQs for poison messages, and Prometheus/Grafana metrics on every stage.',
+            'Implemented real-time transport over gRPC and WebSockets for trading and Telegram bots — quote streams, trade execution and notifications.',
             'Built and maintained React trading/swap UIs consuming live WebSocket quote and price streams; optimized rendering and state management to stay lag-free under heavy market-data load.',
             'Owned REST and WebSocket API contracts between frontend and Node.js/Bun services (NestJS), publishing OpenAPI/AsyncAPI specs, generating typed clients, and keeping the API documentation current.',
             'Delivered event-driven pipelines ingesting pricing, quote and account data over Kafka/Google Pub-Sub, plus an EVM/Solana transaction indexer/parser bridging on-chain events into off-chain services (PostgreSQL via Prisma, Redis caching and pub/sub, ClickHouse).',
@@ -133,7 +146,7 @@ export const resumeData = {
             'Upheld CI quality gates across frontend and backend — Jest/Vitest unit and integration suites plus Playwright end-to-end coverage, enforced code review standards, and Grafana/Prometheus/Datadog observability with structured Winston logging.',
             'Built AI agents that parse on-chain and market data, fetch context, decide and trigger actions (buy/sell/notify) — RAG + LangChain + MCP pipelines, not scripts.',
           ],
-          stack: 'TypeScript, React, Next.js, Node.js/Bun, NestJS, WebSockets, Kafka/Pub-Sub, PostgreSQL/Prisma, Redis, ClickHouse, Playwright, Rust, Go, Docker, GCP/AWS, LangChain/MCP',
+          stack: 'Rust (Tokio, async), gRPC, WebSockets, RabbitMQ / Redis Streams / pgboss, TypeScript, React, Next.js, Node.js/Bun, NestJS, Kafka/Pub-Sub, PostgreSQL/Prisma, Redis, ClickHouse, Prometheus/Grafana, Playwright, Go, Docker, GCP/AWS, LangChain/MCP',
         },
         {
           title: 'Senior Fullstack Engineer',
@@ -296,7 +309,7 @@ export const resumeData = {
     {
       category: 'Languages',
       skills: [
-        'TypeScript', 'JavaScript', 'Rust', 'Go', 'Python', 'Solidity',
+        'Rust', 'TypeScript', 'JavaScript', 'Go', 'Python', 'Solidity',
         'C#/.NET', 'PHP', 'C++', 'Scala', 'SQL',
       ],
     },
@@ -311,8 +324,17 @@ export const resumeData = {
     {
       category: 'Backend & APIs',
       skills: [
+        'Rust (Tokio, async)', 'Highload Rust Microservices', 'gRPC / Protobuf',
         'Node.js', 'Bun', 'NestJS', 'REST / OpenAPI', 'WebSocket Servers / AsyncAPI',
-        'GraphQL', 'Background Workers', 'Prisma / TypeORM', 'Rust Services',
+        'GraphQL', 'Background Workers', 'Prisma / TypeORM',
+      ],
+    },
+    {
+      category: 'Rust & Distributed Systems',
+      skills: [
+        'Tokio / async runtime', 'Stream & Queue Processing', 'At-Least-Once Delivery',
+        'Idempotent Writes', 'Backpressure', 'Graceful Shutdown', 'Dead-Letter Queues',
+        'RabbitMQ', 'Redis Streams', 'pgboss', 'Node.js → Rust Migrations',
       ],
     },
     {
