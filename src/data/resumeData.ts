@@ -35,7 +35,7 @@ export interface Project {
 
 export const resumeData = {
   name: 'Rinat Fihtengolts',
-  title: 'Senior Fullstack / Backend Engineer · Tech Lead | Rust (Tokio, async, highload services) · Node.js/Bun · React/TypeScript | gRPC, WebSockets, REST/OpenAPI, PostgreSQL, Redis, Kafka/RabbitMQ | Web3: EVM/Solana/Cosmos · AI/LLM',
+  title: 'Senior Fullstack / Backend Engineer · Rust, TypeScript, React · Trading & Web3',
   location: 'Dubai, UAE',
 
   contact: {
@@ -46,119 +46,79 @@ export const resumeData = {
   },
 
   summary: [
-    'Fullstack Engineer and Tech Lead with 13+ years of experience. For the last 4 years Rust (Tokio, async, highload microservices, stream and queue processing) has been my primary language for loaded backends, alongside product fullstack work on Node.js/NestJS and React/Next.js/TypeScript.',
-    'Own features from React trading UIs fed by live WebSocket order books and price feeds, through the gRPC/REST/WebSocket API contracts, event-driven ingestion pipelines, and PostgreSQL/Redis data layers behind them.',
-    'Take products from zero to production and real users — solo and in teams; grew teams from 1 to 8–10 engineers and shipped products reaching 120–150k MAU under sustained load. Heavy AI use in development (OpenAI/GPT, Claude Code, coding agents, RAG) with rigorous review of generated code.',
-    'Comfortable in small, fully remote teams with high ambiguity — rapid prototyping, rigorous testing and CI quality gates, and a bias for shipping. Web3-native: on-chain indexing, smart-contract ↔ off-chain bridging, and client-side wallet integration.',
-  ],
-
-  highlights: [
-    'Wrote high-load Rust backend services (Tokio, async) for event-stream processing with at-least-once delivery guarantees and idempotent writes; migrated critical services from Node.js to Rust for throughput and latency predictability',
-    'Built queue-driven pipelines on RabbitMQ / Redis Streams / pgboss with backpressure and graceful shutdown, dead-letter queues for failed messages, and Prometheus/Grafana metrics',
-    'Implemented real-time transport over gRPC and WebSockets for trading and Telegram bots — quote streams, trade execution and notifications',
-    'Built React trading interfaces driven by live WebSocket streams — order books, price feeds, execution status — optimized for lag-free rendering under heavy market data load',
-    'Designed and shipped TypeScript backend services (Node/NestJS): REST + WebSocket APIs, background workers, and event-driven pipelines ingesting pricing and account data',
-    'Built EVM/Solana transaction indexers and parsers bridging on-chain events into off-chain services, backed by PostgreSQL, Redis caching/pub-sub, and ClickHouse analytics',
-    'Scaled @ShogunSwapBot / @ShogunTradingBot to 50k+ users with 3x faster execution by replacing third-party APIs with direct RPC calls and a quotes-management layer',
-    'Delivered trading terminals, DEX aggregators, white-label CEX/DEX systems, and cross-chain dApps across 8+ chains — from scratch to production, with unit/integration/E2E coverage',
+    'Software engineer with 13+ years of experience, focused on crypto trading, wallets and on-chain data. I build execution services and indexers in Rust and Node.js, and the React interfaces traders use to work with them.',
+    'Previously at Ankr, XDEFI (now Ctrl) and Santiment. Led teams of 5–7 engineers and improved trading infrastructure serving 50k+ users. I stay hands-on with architecture, implementation and production support.',
   ],
 
   achievements: [
-    { metric: '13+', label: 'Years Fullstack Engineering' },
-    { metric: '4 yrs', label: 'Rust in Production' },
-    { metric: '50k+', label: 'Users — Shogun Trading Bot' },
-    { metric: '$6M+', label: 'Cross-chain Swap Volume' },
-    { metric: '8+', label: 'Chains in Production' },
+    { metric: '13+', label: 'Years in engineering' },
+    { metric: '50k+', label: 'Shogun bot users' },
+    { metric: '3×', label: 'Faster trade execution' },
+    { metric: '$6M+', label: 'Cross-chain swap volume' },
+    { metric: '8+', label: 'Chains integrated' },
   ] as Achievement[],
 
   projects: [
     {
-      name: 'app.silentswap.com',
+      name: 'SilentSwap',
       url: 'https://app.silentswap.com',
-      description: 'Private cross-chain swap aggregator — React app over real-time quote streams, $6M+ volume across 8+ chains.',
+      description: 'Built swap SDKs and infrastructure for a private cross-chain aggregator; $6M+ in swap volume across 8+ chains.',
     },
     {
-      name: 'haqq.network',
-      url: 'https://haqq.network',
-      description: 'Cosmos + EVM ecosystem: staking/validator dashboards, DAO governance modules, and shariah-compliant DeFi front ends.',
+      name: 'TotalSig',
+      url: 'https://totalsig.com',
+      description: 'Built a multisig wallet from scratch for Bitcoin, Ethereum and Tron, including cross-client signature approval flows.',
     },
     {
-      name: 'ctrl.xyz',
-      url: 'https://ctrl.xyz',
-      description: 'Multichain browser-extension wallet (formerly XDEFI) — in-wallet swap aggregator, MV2→MV3 migration, wallet-connector library.',
-    },
-    {
-      name: 'ankrscan.io',
-      url: 'https://ankrscan.io',
-      description: 'Multi-chain blockchain explorer — indexed event data and optimized fetch paths for real-time tracking across 10+ networks.',
-    },
-    {
-      name: 'app.santiment.net',
-      url: 'https://app.santiment.net',
-      description: '"Bloomberg for crypto traders" — custom charting/UI library, hundreds of live on-chain metrics, signals and alerting.',
-    },
-    {
-      name: 'riskoff.ai',
-      url: 'https://riskoff.ai',
-      description: 'AI-assisted market risk analytics — LLM/RAG pipelines over market and on-chain data feeding a React dashboard.',
-    },
-    {
-      name: 'github.com/GarageInc/stream-consumer',
+      name: 'Rust stream consumer',
       url: 'https://github.com/GarageInc/stream-consumer',
-      description: 'Rust code sample — Tokio-based stream consumer with at-least-once processing, idempotent writes, backpressure and graceful shutdown.',
-    },
-    {
-      name: 'usedesk.com',
-      url: 'https://usedesk.com',
-      description: 'SaaS support platform — real-time React messaging widgets, socket-proxy chat broker, public/internal APIs.',
-    },
-    {
-      name: 'lsports.eu',
-      url: 'https://lsports.eu',
-      description: 'Sports-data CRM and bet aggregator/validator — queue-driven services processing high-volume third-party feeds.',
-    },
-    {
-      name: 'thinkministry.com',
-      url: 'https://thinkministry.com',
-      description: 'Fullstack product delivery — web platform build-out, API integrations, and front-end performance work.',
+      description: 'Public code sample: Tokio, at-least-once processing, idempotent writes, backpressure and graceful shutdown.',
     },
   ] as Project[],
 
   experience: [
     {
+      company: 'trady.xyz · Meme & social trading',
+      roles: [
+        {
+          title: 'Fullstack / Backend Engineer',
+          period: 'Aug 2026 — Present',
+          location: '',
+          highlights: [
+            'Build the trading engine and order execution for Solana/EVM, including take-profit, stop-loss and high-frequency trading workflows.',
+            'Develop on-chain indexers for trades and transfers, and trading signals from X activity, token launches and on-chain radars.',
+            'Build Telegram bots for trading, developer-wallet monitoring, X alerts, and wallet/sniper tracking.',
+            'Develop wallet overviews, P&L calculations and tools to identify linked accounts, bot/farm activity, and unusual developer buys, sells and transfers; analyze liquidity pools and trading strategies.',
+            'Integrate Privy authentication through multiple providers and cross-chain swaps.',
+          ],
+          stack: 'Rust, Node.js, React, ClickHouse, Redis, Kubernetes; Claude Code / OpenCode',
+        },
+      ],
+    },
+    {
       company: 'Haqq Network',
-      totalDuration: '3 years 1 month',
       roles: [
         {
           title: 'Staff Engineer / Team Lead',
-          period: 'May 2024 — Present',
-          location: 'Dubai, UAE',
+          period: 'May 2024 — Jul 2026',
+          location: '',
           highlights: [
-            'Lead a fully remote, cross-functional team of 5–7 engineers plus QA, DevOps and PM, owning Web3 product delivery end-to-end — architecture, planning, risk management, resourcing and production delivery.',
-            'Wrote high-load Rust services (Tokio, async) processing event streams with at-least-once guarantees and idempotent writes; progressively migrated performance-critical Node.js services to Rust for throughput and predictable latency.',
-            'Built queue and stream pipelines on RabbitMQ / Redis Streams / pgboss with backpressure and graceful shutdown, DLQs for poison messages, and Prometheus/Grafana metrics on every stage.',
-            'Implemented real-time transport over gRPC and WebSockets for trading and Telegram bots — quote streams, trade execution and notifications.',
-            'Built and maintained React trading/swap UIs consuming live WebSocket quote and price streams; optimized rendering and state management to stay lag-free under heavy market-data load.',
-            'Owned REST and WebSocket API contracts between frontend and Node.js/Bun services (NestJS), publishing OpenAPI/AsyncAPI specs, generating typed clients, and keeping the API documentation current.',
-            'Delivered event-driven pipelines ingesting pricing, quote and account data over Kafka/Google Pub-Sub, plus an EVM/Solana transaction indexer/parser bridging on-chain events into off-chain services (PostgreSQL via Prisma, Redis caching and pub/sub, ClickHouse).',
-            'Scaled @ShogunTradingBot / @ShogunSwapBot 3x for 50,000+ active users by replacing third-party APIs with direct RPC calls, adding a quotes-management system and region-level latency optimization.',
-            'Integrated Jupiter, Raydium, Paraswap, 1inch and deBridge across 8+ chains; built swap SDKs, fee/gas-refuel logic, Jito/MEV protection and Turnkey social-login auth.',
-            'Upheld CI quality gates across frontend and backend — Jest/Vitest unit and integration suites plus Playwright end-to-end coverage, enforced code review standards, and Grafana/Prometheus/Datadog observability with structured Winston logging.',
-            'Built AI agents that parse on-chain and market data, fetch context, decide and trigger actions (buy/sell/notify) — RAG + LangChain + MCP pipelines, not scripts.',
+            'Led a remote team of 5–7 engineers delivering trading bots, cross-chain swaps and Web3 applications.',
+            'Made Shogun trade execution 3× faster for 50k+ users through direct RPC calls, quote management and regional latency optimization.',
+            'Built async Rust/Tokio services and EVM/Solana indexers with at-least-once processing, idempotent writes, backpressure and graceful shutdown.',
+            'Integrated Jupiter, Raydium, 1inch, Paraswap and deBridge across 8+ chains, including swap SDKs, gas refuel and Jito/MEV protection.',
+            'Built REST and WebSocket APIs for React trading interfaces, with typed clients and OpenAPI contracts.',
           ],
-          stack: 'Rust (Tokio, async), gRPC, WebSockets, RabbitMQ / Redis Streams / pgboss, TypeScript, React, Next.js, Node.js/Bun, NestJS, Kafka/Pub-Sub, PostgreSQL/Prisma, Redis, ClickHouse, Prometheus/Grafana, Playwright, Go, Docker, GCP/AWS, LangChain/MCP',
+          stack: 'Rust/Tokio, TypeScript, Node.js/Bun, React/Next.js, PostgreSQL, Redis, ClickHouse, gRPC, WebSockets, RabbitMQ, GCP/AWS',
         },
         {
           title: 'Senior Fullstack Engineer',
           period: 'Jun 2023 — May 2024',
-          location: 'Dubai, UAE',
+          location: '',
           highlights: [
-            'Architected a multi-signature Web3 wallet (totalsig.com) for Bitcoin, Ethereum and Tron from scratch — React client, TypeScript backend, and secp256k1/ECDSA cross-client signature approval flows.',
-            'Built DeFi liquidity-pool integrations for Firoza.finance: multi-chain data ingestion, KYC flows, and ETL transaction processing with stablecoin analytics over PostgreSQL (Prisma).',
-            'Implemented real-time portfolio-tracking dApps across EVM/BTC/Cosmos, integrating CEX APIs (Binance, OKX) over REST and WebSocket feeds with GPT-4-assisted forecasting.',
-            'Scaled @TonchemyBot, a Telegram mini-app on TON, to ~240k registered users (~12k MAU); wrote Func contracts for minting/burning NFTs and jettons.',
+            'Built multisig wallets, portfolio trackers and DeFi integrations across EVM, Bitcoin, Cosmos and TON.',
+            'Scaled Tonchemy, a Telegram mini-app, to ~240k registered users (~12k MAU); wrote TON contracts for NFTs and jettons.',
           ],
-          stack: 'TypeScript, React, Next.js, Node.js, wagmi/ethers/viem, @solana/web3.js, Anchor, Cosmos SDK, TON/Func, PostgreSQL, Redis, GCP/AWS',
         },
       ],
     },
@@ -166,44 +126,27 @@ export const resumeData = {
       company: 'XDEFI Wallet (now Ctrl)',
       roles: [
         {
-          title: 'Senior Fullstack Engineer — Web3 Wallets',
+          title: 'Senior Fullstack Engineer',
           period: 'Apr 2022 — May 2023',
-          location: 'Greater London, UK',
+          location: '',
           highlights: [
-            'Owned component architecture and state management for a multichain browser-extension wallet (ctrl.xyz) used for swaps, staking and portfolio tracking across 10+ networks.',
-            'Reverse-engineered Uniswap, SushiSwap, LayerZero and Wormhole to implement a unified in-wallet swap aggregator with live quote comparison.',
-            'Led the mission-critical Manifest V2 → V3 migration, re-architecting background/service-worker messaging while preserving performance and security guarantees.',
-            'Built a standalone multi-wallet connector library (hardware-wallet support, address derivation, signing, indexer access, nonce management) to streamline dApp integrations, covered by Jest unit tests and Playwright end-to-end suites in CI.',
+            'Built swap, staking and portfolio features for a browser-extension wallet supporting 10+ networks, including an in-wallet swap aggregator.',
+            'Led the Manifest V2 → V3 migration and built a reusable wallet connector with hardware-wallet support, signing and nonce management.',
           ],
-          stack: 'TypeScript, React, ethers.js/viem, web3.js, WebExtension APIs, Node.js, Jest/Playwright',
         },
       ],
     },
     {
       company: 'Ankr',
-      totalDuration: '1 year',
       roles: [
         {
-          title: 'Team Lead',
-          period: 'Oct 2021 — Apr 2022',
+          title: 'Senior Fullstack Engineer → Team Lead',
+          period: 'May 2021 — Apr 2022',
           location: '',
           highlights: [
-            'Built multi-chain blockchain explorers (ankrscan.io), designing indexing and data-fetch layers for real-time tracking across 10+ networks; managed a team of 3 engineers.',
-            'Deployed 50+ Solidity contracts for DEX liquidity, staking rewards and governance across 5+ EVM chains, with subgraph/Subsquid indexers feeding the frontends.',
-            'Designed high-yield DeFi strategies by analyzing SushiSwap and TraderJoe, improving capital efficiency for the ONX.finance ecosystem.',
-            'Co-built a P2E NFT game (Moonbeam/Arbitrum) including cross-chain asset bridges and the off-chain services backing them.',
+            'Led 3 engineers building blockchain explorers and indexing/data layers for 10+ networks.',
+            'Deployed 50+ Solidity contracts across 5+ EVM chains for liquidity, staking and governance; built DeFi integrations for Onx.Finance.',
           ],
-          stack: 'TypeScript, React, Next.js, Node.js, ethers.js/web3.js, Solidity, The Graph, Subsquid, PostgreSQL',
-        },
-        {
-          title: 'Senior Fullstack Developer',
-          period: 'May 2021 — Oct 2021',
-          location: 'San Francisco Bay Area',
-          highlights: [
-            'Core developer for cross-chain liquidity providers and liquidity pools at Onx.Finance.',
-            'Built Web3 interfaces and integrations with Sushi, Uniswap, Quickswap, TraderJoe and Lydia Finance pools.',
-          ],
-          stack: 'React, TypeScript, ethers.js, Next.js, Solidity',
         },
       ],
     },
@@ -211,95 +154,30 @@ export const resumeData = {
       company: 'Santiment',
       roles: [
         {
-          title: 'Senior Fullstack Engineer — Trading Analytics',
+          title: 'Senior Fullstack Engineer',
           period: 'Jun 2019 — May 2021',
-          location: 'Switzerland',
+          location: '',
           highlights: [
-            'Built the charting and UI library behind app.santiment.net — the "Bloomberg for crypto traders" — delivering pixel-perfect SVG/Canvas visualizations of dense real-time market data.',
-            'Integrated hundreds of on-chain and market metrics into consumer-facing dashboards, signals and alerting, over GraphQL and WebSocket subscriptions.',
-            'Developed high-frequency tracking of CEX deposits and withdrawals via persistent socket connections, plus the APIs and KYC integrations serving that data.',
+            'Built charting components and dashboards for app.santiment.net, exposing hundreds of on-chain and market metrics, signals and alerts.',
+            'Developed real-time CEX deposit/withdrawal tracking and data integrations over GraphQL and WebSockets.',
           ],
-          stack: 'React, TypeScript, GraphQL, WebSockets, SVG/Canvas charts, Python, PHP, PostgreSQL',
         },
       ],
     },
     {
-      company: 'Usedesk',
+      company: 'Earlier experience',
       roles: [
         {
-          title: 'Fullstack Engineer (React / Vue / PHP)',
+          title: 'Fullstack Engineer · Usedesk',
           period: 'Sep 2018 — Mar 2020',
-          location: 'Moscow, Russia',
-          highlights: [
-            'Built real-time React messaging widgets and the public/internal APIs powering CRM integrations for aviasales.ru, skyeng.ru, docdoc.ru and others.',
-            'Implemented cobrowsing (session sync and tracking) and a socket-proxy service brokering real-time chat traffic at scale.',
-            'Cut page-load times across enterprise customer platforms by replacing server-rendered views with React/Vue components and profiling the render path.',
-          ],
-          stack: 'PHP, React, Vue, TypeScript, WebSockets, REST APIs, PostgreSQL',
+          location: '',
+          highlights: ['Built real-time messaging widgets, a chat broker and CRM APIs for customers including Aviasales and Skyeng. React, Vue, PHP, WebSockets.'],
         },
-      ],
-    },
-    {
-      company: 'Ambaha IT-Solutions',
-      roles: [
         {
-          title: 'Fullstack Engineer — .NET / Angular / DevOps',
-          period: 'Sep 2016 — Jun 2018',
-          location: 'St. Petersburg, Russia',
-          highlights: [
-            'Built a CRM for collecting and analyzing tickets/signals (.NET MVC + Angular + WCF) for lsports.eu.',
-            'Wrote an aggregator/validator of sports bets with a web interface for composing boolean rules in human language, syncing data from third-party APIs.',
-            'Designed the backend as queue-driven WCF services plus REST endpoints for high-volume incoming feeds.',
-          ],
-          stack: '.NET MVC, C#, Angular, WCF, REST, PostgreSQL',
-        },
-      ],
-    },
-    {
-      company: 'Polis24',
-      roles: [
-        {
-          title: 'Software Engineer (Fullstack)',
-          period: 'Sep 2015 — Oct 2016',
-          location: 'Kazan, Russia',
-          highlights: [
-            'Developed UI/UX for payment terminals (polis24.ru): policy registration, payment acceptance and issuance, integrating hardware and user interaction.',
-            'Built operator, technician and administrator panels with financial-transaction reporting.',
-            'Developed Scala microservices processing data streamed from payment terminals.',
-          ],
-          stack: 'ActionScript, Python, C++, JavaScript, Scala, bash',
-        },
-      ],
-    },
-    {
-      company: 'GarageInc',
-      roles: [
-        {
-          title: 'Self-Employed Software Engineer',
-          period: 'Feb 2013 — Nov 2015',
-          location: 'Kazan, Russia',
-          highlights: [
-            'Founded a software studio delivering fullstack products for clients — CRMs, warehouse-accounting systems, mobile apps, a freelance exchange, and web platforms including thinkministry.com.',
-            'Built crypto exchanges and trading platforms (qoden.com, gcox.com, bitkonan.com, sugarexchange.io): order matching, wallets, payment services, KYC, token integrations and trading bots.',
-            'Implemented cryptography (elliptic curves, protocol emulation), search algorithms (n-grams, Levenshtein, Huffman) and TCP/IP/UDP-stack projects (chats, multi-threaded ws/ftp servers, crawlers).',
-          ],
-          stack: 'C#/.NET, Angular, JavaScript, C++, cryptography, PostgreSQL',
-        },
-      ],
-    },
-    {
-      company: 'BARS GROUP',
-      roles: [
-        {
-          title: 'ASP.NET + Ext.js Developer',
-          period: 'Oct 2014 — Jun 2015',
-          location: 'Kazan, Russia',
-          highlights: [
-            'Developed and supported budget-reporting web applications on ASP.NET MVC, writing server-side C# modules following OOP/design principles.',
-            'Refactored and optimized existing modules; integrated third-party systems via WCF; extended the client side with jQuery and ExtJS 3.',
-            'Designed database schemas, migrations, queries, views and stored procedures (Oracle, PostgreSQL) via NHibernate; configured CI and test-server deployments.',
-          ],
-          stack: 'ASP.NET MVC, C#, ExtJS 3, jQuery, WCF, Oracle, PostgreSQL, NHibernate',
+          title: 'Software Engineer · Ambaha, Polis24, BARS Group & freelance',
+          period: '2013 — 2018',
+          location: '',
+          highlights: ['Delivered sports-data services, payment-terminal software, CRMs and reporting systems. C#/.NET, JavaScript, Angular, Scala, SQL.'],
         },
       ],
     },
@@ -307,93 +185,31 @@ export const resumeData = {
 
   skills: [
     {
-      category: 'Languages',
-      skills: [
-        'Rust', 'TypeScript', 'JavaScript', 'Go', 'Python', 'Solidity',
-        'C#/.NET', 'PHP', 'C++', 'Scala', 'SQL',
-      ],
+      category: 'Core',
+      skills: ['Rust / Tokio / async', 'TypeScript / Node.js', 'React / Next.js', 'SQL', 'Solidity'],
     },
     {
-      category: 'Frontend',
-      skills: [
-        'React (hooks, context)', 'Next.js', 'State Management', 'Real-time UIs',
-        'Rendering Performance', 'Responsive Design', 'SVG/Canvas Charting',
-        'Tailwind CSS', 'Svelte 5', 'Vue', 'Angular',
-      ],
+      category: 'Data & backend',
+      skills: ['PostgreSQL', 'ClickHouse', 'Redis', 'Kafka / RabbitMQ', 'REST / OpenAPI', 'gRPC / WebSockets', 'On-chain indexers'],
     },
     {
-      category: 'Backend & APIs',
-      skills: [
-        'Rust (Tokio, async)', 'Highload Rust Microservices', 'gRPC / Protobuf',
-        'Node.js', 'Bun', 'NestJS', 'REST / OpenAPI', 'WebSocket Servers / AsyncAPI',
-        'GraphQL', 'Background Workers', 'Prisma / TypeORM',
-      ],
+      category: 'Trading & Web3',
+      skills: ['Solana / Ethereum / EVM', 'Order execution', 'DEX / cross-chain swaps', 'Wallets / Privy', 'MEV / Jito', 'P&L analytics'],
     },
     {
-      category: 'Rust & Distributed Systems',
-      skills: [
-        'Tokio / async runtime', 'Stream & Queue Processing', 'At-Least-Once Delivery',
-        'Idempotent Writes', 'Backpressure', 'Graceful Shutdown', 'Dead-Letter Queues',
-        'RabbitMQ', 'Redis Streams', 'pgboss', 'Node.js → Rust Migrations',
-      ],
-    },
-    {
-      category: 'Data & Real-Time Infrastructure',
-      skills: [
-        'PostgreSQL', 'Redis (cache & pub/sub)', 'Event-Driven Pipelines',
-        'Kafka / Google Pub-Sub', 'ClickHouse', 'MongoDB', 'ETL & Ingestion',
-        'The Graph', 'Subsquid', 'Blockchain Indexers',
-      ],
-    },
-    {
-      category: 'Testing, Quality & Observability',
-      skills: [
-        'Unit / Integration / E2E', 'Jest / Vitest', 'Playwright / Cypress',
-        'CI Quality Gates', 'Code Review Standards', 'Grafana', 'Prometheus',
-        'Datadog', 'Structured Logging (Winston)',
-      ],
-    },
-    {
-      category: 'Trading & Fintech',
-      skills: [
-        'Order Books & Price Feeds', 'Trade Execution Flows', 'DEX Aggregators',
-        'Algorithmic Trading', 'Market Making', 'HFT', 'CEX Integrations',
-        'LP Pools', 'Staking', 'Governance', 'Payments & KYC',
-      ],
-    },
-    {
-      category: 'Blockchain & Web3',
-      skills: [
-        'Ethereum / L2', 'Solana', 'Cosmos SDK', 'Tron', 'BTC (PSBT)', 'TON', 'Monero',
-        'ethers.js', 'viem', 'wagmi', '@solana/web3.js', '@reown/appkit',
-        'Wallet Integration', 'Smart Contracts', 'Cross-chain Bridges', 'MEV / Jito',
-      ],
-    },
-    {
-      category: 'Infrastructure & AI',
-      skills: [
-        'AWS', 'GCP', 'Docker', 'CI/CD', 'AI Agents', 'RAG', 'LangChain', 'MCP',
-        'OpenAI / GPT-4', 'Llama', 'Vector Search',
-      ],
-    },
-    {
-      category: 'Security',
-      skills: [
-        'Smart Contract Security', 'Audit Readiness (Hacken, CertiK)',
-        'Cryptographic Protocols (secp256k1, ECDSA)', 'Access Control Patterns',
-        'Information Security',
-      ],
+      category: 'Delivery',
+      skills: ['Kubernetes / Docker', 'AWS / GCP', 'CI/CD', 'Prometheus / Grafana', 'Jest / Playwright', 'Claude Code / OpenCode'],
     },
   ] as SkillGroup[],
 
   education: {
     institution: 'Kazan State University',
-    degree: "Bachelor's degree, Computer and Information Systems Security / Information Assurance",
+    degree: "Bachelor’s degree, Computer and Information Systems Security",
     period: '2012 — 2016',
   },
 
   languages: [
     { name: 'English', level: 'Full Professional' },
-    { name: 'Russian', level: 'Native or Bilingual' },
+    { name: 'Russian', level: 'Native' },
   ] as Language[],
 };

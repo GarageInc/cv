@@ -17,8 +17,8 @@ function App() {
         </a>
         <nav className="header-nav" aria-label="Resume sections">
           <a href="#summary">Summary</a>
-          <a href="#projects">Projects</a>
           <a href="#experience">Experience</a>
+          <a href="#projects">Projects</a>
           <a href="#skills">Skills</a>
           <a href="#education">Education</a>
           <a href="#contact">Contact</a>
@@ -47,11 +47,11 @@ function App() {
             <span className="separator">|</span>
             <span>{resumeData.location}</span>
             <span className="separator">|</span>
-            <a href={resumeData.contact.linkedin} target="_blank" rel="noopener noreferrer">LinkedIn</a>
+            <a href={resumeData.contact.linkedin} target="_blank" rel="noopener noreferrer">linkedin.com/in/rfihtengolts</a>
             <span className="separator">|</span>
-            <a href={resumeData.contact.github} target="_blank" rel="noopener noreferrer">GitHub</a>
+            <a href={resumeData.contact.github} target="_blank" rel="noopener noreferrer">github.com/GarageInc</a>
             <span className="separator">|</span>
-            <a href={resumeData.contact.telegram} target="_blank" rel="noopener noreferrer">Telegram</a>
+            <a href={resumeData.contact.telegram} target="_blank" rel="noopener noreferrer">t.me/rfihtengolts</a>
           </address>
           <button
             onClick={exportPDF}
@@ -74,11 +74,6 @@ function App() {
           {resumeData.summary.map((para, i) => (
             <p key={i} className="doc-summary">{para}</p>
           ))}
-          <ul className="doc-highlights">
-            {resumeData.highlights.map((h, i) => (
-              <li key={i}>{h}</li>
-            ))}
-          </ul>
         </section>
 
         {/* Key Achievements */}
@@ -90,22 +85,6 @@ function App() {
             </div>
           ))}
         </div>
-
-        {/* Selected Projects */}
-        <section className="doc-section" id="projects">
-          <h2 className="doc-section-title">Selected Products Shipped</h2>
-          <ul className="doc-highlights">
-            {resumeData.projects.map((p, i) => (
-              <li key={i}>
-                <a href={p.url} target="_blank" rel="noopener noreferrer">
-                  <strong>{p.name}</strong>
-                </a>
-                {' — '}
-                {p.description}
-              </li>
-            ))}
-          </ul>
-        </section>
 
         {/* Work Experience */}
         <section className="doc-section" id="experience">
@@ -141,6 +120,22 @@ function App() {
               ))}
             </article>
           ))}
+        </section>
+
+        {/* Selected Projects */}
+        <section className="doc-section" id="projects">
+          <h2 className="doc-section-title">Selected Products Shipped</h2>
+          <ul className="doc-highlights">
+            {resumeData.projects.map((p, i) => (
+              <li key={i}>
+                <a href={p.url} target="_blank" rel="noopener noreferrer">
+                  <strong>{p.name}</strong>
+                </a>
+                {' — '}
+                {p.description}
+              </li>
+            ))}
+          </ul>
         </section>
 
         {/* Technical Skills */}
