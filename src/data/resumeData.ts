@@ -54,15 +54,21 @@ export const resumeData = {
     { metric: '13+', label: 'Years in engineering' },
     { metric: '50k+', label: 'Shogun bot users' },
     { metric: '3×', label: 'Faster trade execution' },
-    { metric: '$6M+', label: 'Cross-chain swap volume' },
-    { metric: '8+', label: 'Chains integrated' },
+    { metric: '$6.27B+', label: 'Cross-chain swap volume' },
+    { metric: '65k', label: 'Unique wallets on Trady' },
+    { metric: '30k', label: 'Meme tokens indexed daily' },
   ] as Achievement[],
 
   projects: [
     {
+      name: 'Trady',
+      url: 'https://trady.xyz',
+      description: 'Developed a trading platform used by 65k unique wallets, with on-chain indexers processing 30k meme tokens per day.',
+    },
+    {
       name: 'SilentSwap',
       url: 'https://app.silentswap.com',
-      description: 'Built swap SDKs and infrastructure for a private cross-chain aggregator; $6M+ in swap volume across 8+ chains.',
+      description: 'Built swap SDKs and infrastructure for a private cross-chain aggregator with $6,277,281,453 in swap volume.',
     },
     {
       name: 'TotalSig',
@@ -85,8 +91,8 @@ export const resumeData = {
           period: 'Aug 2026 — Present',
           location: '',
           highlights: [
-            'Build the trading engine and order execution for Solana/EVM, including take-profit, stop-loss and high-frequency trading workflows.',
-            'Develop on-chain indexers for trades and transfers, and trading signals from X activity, token launches and on-chain radars.',
+            'Develop the trading engine and order execution for Trady, a platform used by 65k unique wallets. Support trading on Solana and EVM networks, including take-profit and stop-loss orders.',
+            'Develop on-chain indexers that process trades, transfers and launches for 30k meme tokens per day. Build trading signals from indexed data and X activity.',
             'Build Telegram bots for trading, developer-wallet monitoring, X alerts, and wallet/sniper tracking.',
             'Develop wallet overviews, P&L calculations and tools to identify linked accounts, bot/farm activity, and unusual developer buys, sells and transfers; analyze liquidity pools and trading strategies.',
             'Integrate Privy authentication through multiple providers and cross-chain swaps.',
@@ -194,7 +200,7 @@ export const resumeData = {
     },
     {
       category: 'Trading & Web3',
-      skills: ['Solana / Ethereum / EVM', 'Order execution', 'DEX / cross-chain swaps', 'Wallets / Privy', 'MEV / Jito', 'P&L analytics'],
+      skills: ['Solana / EVM / Bitcoin / Tron / Sui / Cosmos', 'Order execution', 'DEX / cross-chain swaps', 'Wallets / Privy', 'MEV / Jito', 'P&L analytics'],
     },
     {
       category: 'Delivery',

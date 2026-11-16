@@ -257,7 +257,7 @@ a:hover {
 /* ─── Key Achievements ─── */
 .achievements-grid {
   display: grid;
-  grid-template-columns: repeat(5, 1fr);
+  grid-template-columns: repeat(3, 1fr);
   gap: 0.75rem;
   margin-bottom: 1.75rem;
   padding: 1rem 0;
@@ -624,7 +624,7 @@ a:hover {
   }
 
   .achievements-grid {
-    grid-template-columns: repeat(5, 1fr);
+    grid-template-columns: repeat(3, 1fr);
     gap: 0.4rem;
     margin-bottom: 0.9rem;
     padding: 0.5rem 0;
