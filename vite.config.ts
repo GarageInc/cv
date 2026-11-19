@@ -5,4 +5,12 @@ import react from '@vitejs/plugin-react';
 export default defineConfig({
   plugins: [react()],
   base: '/cv/',
+  build: {
+    rollupOptions: {
+      input: {
+        main: 'index.html',
+        anonymous: 'anonymous/index.html',
+      },
+    },
+  },
 });

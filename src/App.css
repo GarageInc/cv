@@ -207,6 +207,12 @@ a:hover {
   cursor: not-allowed;
 }
 
+.doc-anonymous-link {
+  display: inline-block;
+  margin-top: 0.75rem;
+  font-size: 0.85rem;
+}
+
 /* ─── Section headings ─── */
 .doc-section {
   margin-bottom: 1.75rem;
@@ -580,7 +586,8 @@ a:hover {
 
   .header,
   .footer,
-  .doc-export-btn {
+  .doc-export-btn,
+  .doc-anonymous-link {
     display: none !important;
   }
 

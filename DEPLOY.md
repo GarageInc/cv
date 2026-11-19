@@ -34,7 +34,23 @@ bun install
 bun run dev
 ```
 
-Open http://localhost:5173/resume/ in your browser.
+Open http://localhost:5173/cv/ in your browser (or your configured base path).
+
+## Anonymous CV
+
+With the current `/cv/` base path, the anonymous version is available at
+`http://localhost:5173/cv/anonymous/` during development and at
+`https://<USERNAME>.github.io/cv/anonymous/` after deployment. Both pages are
+included in the production build.
+
+The anonymous page uses the same layout, experience and skills, without personal
+names, initials, location, contact details or personal GitHub links. Its HTML
+metadata and loaded JavaScript also omit personal information. Keep identifying
+data in `src/data/profileData.ts`, which only the main page imports.
+
+Use either PDF button and select **Save as PDF** in the browser's print dialog.
+The A4 print layout hides navigation and buttons and preserves selectable text.
+Disable the browser's **Headers and footers** option to omit the page URL.
 
 ## Deploy
 

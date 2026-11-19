@@ -1,7 +1,11 @@
 import { useCallback } from 'react';
 import { resumeData } from './data/resumeData';
+import type { ResumeProfile } from './data/profileData';
 
-function App() {
+function App({ profile }: { profile?: ResumeProfile }) {
+  const projects = profile
+    ? [...resumeData.projects, ...profile.projects]
+    : resumeData.projects;
   // Uses the browser's own print-to-PDF pipeline so the exported file contains
   // real, selectable text. Canvas-based exporters (html2pdf/html2canvas) emit a
   // rasterized image, which applicant tracking systems parse as a blank page.
@@ -13,7 +17,7 @@ function App() {
     <>
       <header className="header" role="banner">
         <a href="#top" className="header-logo" aria-label="Back to top">
-          RF
+          {profile?.initials ?? 'CV'}
         </a>
         <nav className="header-nav" aria-label="Resume sections">
           <a href="#summary">Summary</a>
@@ -21,7 +25,7 @@ function App() {
           <a href="#projects">Projects</a>
           <a href="#skills">Skills</a>
           <a href="#education">Education</a>
-          <a href="#contact">Contact</a>
+          {profile && <a href="#contact">Contact</a>}
         </nav>
         <button
           onClick={exportPDF}
@@ -40,19 +44,19 @@ function App() {
       <main className="resume-page">
         {/* Document Header */}
         <div className="doc-header" id="top">
-          <h1>{resumeData.name}</h1>
+          <h1>{profile?.name ?? 'Curriculum Vitae'}</h1>
           <p className="doc-title">{resumeData.title}</p>
-          <address className="doc-contacts">
-            <a href={`mailto:${resumeData.contact.email}`}>{resumeData.contact.email}</a>
+          {profile && <address className="doc-contacts">
+            <a href={`mailto:${profile.contact.email}`}>{profile.contact.email}</a>
             <span className="separator">|</span>
-            <span>{resumeData.location}</span>
+            <span>{profile.location}</span>
             <span className="separator">|</span>
-            <a href={resumeData.contact.linkedin} target="_blank" rel="noopener noreferrer">linkedin.com/in/rfihtengolts</a>
+            <a href={profile.contact.linkedin} target="_blank" rel="noopener noreferrer">{profile.contact.linkedin.replace('https://www.', '')}</a>
             <span className="separator">|</span>
-            <a href={resumeData.contact.github} target="_blank" rel="noopener noreferrer">github.com/GarageInc</a>
+            <a href={profile.contact.github} target="_blank" rel="noopener noreferrer">{profile.contact.github.replace('https://', '')}</a>
             <span className="separator">|</span>
-            <a href={resumeData.contact.telegram} target="_blank" rel="noopener noreferrer">t.me/rfihtengolts</a>
-          </address>
+            <a href={profile.contact.telegram} target="_blank" rel="noopener noreferrer">{profile.contact.telegram.replace('https://', '')}</a>
+          </address>}
           <button
             onClick={exportPDF}
             className="doc-export-btn"
@@ -66,6 +70,11 @@ function App() {
             </svg>
             Export Resume in PDF
           </button>
+          {profile && (
+            <a className="doc-anonymous-link" href={`${import.meta.env.BASE_URL}anonymous/`}>
+              Anonymous CV
+            </a>
+          )}
         </div>
 
         {/* Professional Summary */}
@@ -126,7 +135,7 @@ function App() {
         <section className="doc-section" id="projects">
           <h2 className="doc-section-title">Selected Products Shipped</h2>
           <ul className="doc-highlights">
-            {resumeData.projects.map((p, i) => (
+            {projects.map((p, i) => (
               <li key={i}>
                 <a href={p.url} target="_blank" rel="noopener noreferrer">
                   <strong>{p.name}</strong>
@@ -176,31 +185,31 @@ function App() {
         </section>
 
         {/* Contact */}
-        <section className="doc-section" id="contact">
+        {profile && <section className="doc-section" id="contact">
           <h2 className="doc-section-title">Contact Information</h2>
           <address className="contact-list">
             <div className="contact-item">
               <span className="contact-item-label">Email</span>
-              <a href={`mailto:${resumeData.contact.email}`} className="contact-item-value">{resumeData.contact.email}</a>
+              <a href={`mailto:${profile.contact.email}`} className="contact-item-value">{profile.contact.email}</a>
             </div>
             <div className="contact-item">
               <span className="contact-item-label">Telegram</span>
-              <a href={resumeData.contact.telegram} target="_blank" rel="noopener noreferrer" className="contact-item-value">@rfihtengolts</a>
+              <a href={profile.contact.telegram} target="_blank" rel="noopener noreferrer" className="contact-item-value">@{profile.contact.telegram.split('/').pop()}</a>
             </div>
             <div className="contact-item">
               <span className="contact-item-label">LinkedIn</span>
-              <a href={resumeData.contact.linkedin} target="_blank" rel="noopener noreferrer" className="contact-item-value">linkedin.com/in/rfihtengolts</a>
+              <a href={profile.contact.linkedin} target="_blank" rel="noopener noreferrer" className="contact-item-value">{profile.contact.linkedin.replace('https://www.', '')}</a>
             </div>
             <div className="contact-item">
               <span className="contact-item-label">GitHub</span>
-              <a href={resumeData.contact.github} target="_blank" rel="noopener noreferrer" className="contact-item-value">github.com/GarageInc</a>
+              <a href={profile.contact.github} target="_blank" rel="noopener noreferrer" className="contact-item-value">{profile.contact.github.replace('https://', '')}</a>
             </div>
           </address>
-        </section>
+        </section>}
       </main>
 
       <footer className="footer">
-        <p>&copy; {new Date().getFullYear()} Rinat Fihtengolts</p>
+        <p>{profile ? `© ${new Date().getFullYear()} ${profile.name}` : 'Curriculum Vitae'}</p>
       </footer>
     </>
   );

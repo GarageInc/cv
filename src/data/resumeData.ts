@@ -34,16 +34,7 @@ export interface Project {
 }
 
 export const resumeData = {
-  name: 'Rinat Fihtengolts',
   title: 'Senior Fullstack / Backend Engineer · Rust, TypeScript, React · Trading & Web3',
-  location: 'Dubai, UAE',
-
-  contact: {
-    telegram: 'https://t.me/rfihtengolts',
-    email: 'rinatficht@gmail.com',
-    linkedin: 'https://www.linkedin.com/in/rfihtengolts',
-    github: 'https://github.com/GarageInc',
-  },
 
   summary: [
     'Software engineer with 13+ years of experience, focused on crypto trading, wallets and on-chain data. I build execution services and indexers in Rust and Node.js, and the React interfaces traders use to work with them.',
@@ -74,11 +65,6 @@ export const resumeData = {
       name: 'TotalSig',
       url: 'https://totalsig.com',
       description: 'Built a multisig wallet from scratch for Bitcoin, Ethereum and Tron, including cross-client signature approval flows.',
-    },
-    {
-      name: 'Rust stream consumer',
-      url: 'https://github.com/GarageInc/stream-consumer',
-      description: 'Public code sample: Tokio, at-least-once processing, idempotent writes, backpressure and graceful shutdown.',
     },
   ] as Project[],
 
