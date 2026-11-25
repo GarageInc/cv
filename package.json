@@ -5,7 +5,8 @@
   "type": "module",
   "scripts": {
     "dev": "vite",
-    "build": "tsc -b && vite build",
+    "build": "tsc -b && vite build && bun run export:pdf",
+    "export:pdf": "python3 scripts/export-pdf.py",
     "preview": "vite preview",
     "deploy": "gh-pages -d dist"
   },

@@ -27,9 +27,10 @@ function App({ profile }: { profile?: ResumeProfile }) {
           <a href="#education">Education</a>
           {profile && <a href="#contact">Contact</a>}
         </nav>
-        <button
-          onClick={exportPDF}
+        <a
+          href={`${import.meta.env.BASE_URL}${profile ? '' : 'anonymous/'}resume.pdf`}
           className="export-btn"
+          download
           aria-label="Download resume as PDF"
         >
           <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true">
@@ -38,7 +39,7 @@ function App({ profile }: { profile?: ResumeProfile }) {
             <line x1="12" y1="15" x2="12" y2="3" />
           </svg>
           PDF
-        </button>
+        </a>
       </header>
 
       <main className="resume-page">
@@ -133,7 +134,7 @@ function App({ profile }: { profile?: ResumeProfile }) {
 
         {/* Selected Projects */}
         <section className="doc-section" id="projects">
-          <h2 className="doc-section-title">Selected Products Shipped</h2>
+          <h2 className="doc-section-title">Selected Products &amp; Code</h2>
           <ul className="doc-highlights">
             {projects.map((p, i) => (
               <li key={i}>

@@ -123,6 +123,8 @@ a:hover {
 
 .export-btn:hover:not(:disabled) {
   background: #1e40af;
+  color: #fff;
+  text-decoration: none;
 }
 
 .export-btn:disabled {

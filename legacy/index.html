@@ -1,0 +1,20 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <noscript><meta http-equiv="refresh" content="0;url=https://garageinc.github.io/cv/" /></noscript>
+    <link rel="canonical" href="https://garageinc.github.io/cv/" />
+    <title>CV - updated address</title>
+    <script>
+      const suffix = window.location.pathname.replace(/^\/cv-template(?:\/|$)/, '');
+      const destination = new URL('/cv/' + suffix, 'https://garageinc.github.io');
+      destination.search = window.location.search;
+      destination.hash = window.location.hash;
+      window.location.replace(destination.href);
+    </script>
+  </head>
+  <body>
+    <p>The CV is available at <a href="https://garageinc.github.io/cv/">its current address</a>.</p>
+  </body>
+</html>

@@ -34,18 +34,18 @@ export interface Project {
 }
 
 export const resumeData = {
-  title: 'Senior Fullstack / Backend Engineer · Rust, TypeScript, React · Trading & Web3',
+  title: 'Senior Backend Engineer · Rust & TypeScript · Trading Systems, Wallets & On-chain Data',
 
   summary: [
-    'Software engineer with 13+ years of experience, focused on crypto trading, wallets and on-chain data. I build execution services and indexers in Rust and Node.js, and the React interfaces traders use to work with them.',
-    'Previously at Ankr, XDEFI (now Ctrl) and Santiment. Led teams of 5–7 engineers and improved trading infrastructure serving 50k+ users. I stay hands-on with architecture, implementation and production support.',
+    'Backend engineer with 13+ years of experience building trading systems, wallets and on-chain data products. I build execution services and indexers in Rust and TypeScript/Node.js, with React interfaces for traders.',
+    'Previously at Ankr, XDEFI (now Ctrl) and Santiment. Led remote teams of 5–7 engineers and built Shogun infrastructure serving 50k+ users, reducing swap execution latency from 1.5 seconds to 100–200 ms. Hands-on across architecture, delivery and production support.',
   ],
 
   achievements: [
     { metric: '13+', label: 'Years in engineering' },
     { metric: '50k+', label: 'Shogun bot users' },
-    { metric: '3×', label: 'Faster trade execution' },
-    { metric: '$6.27B+', label: 'Cross-chain swap volume' },
+    { metric: '100–200 ms', label: 'Swap execution, down from 1.5 s' },
+    { metric: '$6.27B+', label: 'SilentSwap platform volume' },
     { metric: '65k', label: 'Unique wallets on Trady' },
     { metric: '30k', label: 'Meme tokens indexed daily' },
   ] as Achievement[],
@@ -54,12 +54,12 @@ export const resumeData = {
     {
       name: 'Trady',
       url: 'https://trady.xyz',
-      description: 'Developed a trading platform used by 65k unique wallets, with on-chain indexers processing 30k meme tokens per day.',
+      description: 'Solana/EVM trading, wallet analytics and on-chain token indexers.',
     },
     {
       name: 'SilentSwap',
       url: 'https://app.silentswap.com',
-      description: 'Built swap SDKs and infrastructure for a private cross-chain aggregator with $6,277,281,453 in swap volume.',
+      description: 'Built swap SDKs and cross-chain infrastructure. Platform-reported cumulative swap volume: $6.27B+ (November 2026).',
     },
     {
       name: 'TotalSig',
@@ -77,11 +77,10 @@ export const resumeData = {
           period: 'Aug 2026 — Present',
           location: '',
           highlights: [
-            'Develop the trading engine and order execution for Trady, a platform used by 65k unique wallets. Support trading on Solana and EVM networks, including take-profit and stop-loss orders.',
-            'Develop on-chain indexers that process trades, transfers and launches for 30k meme tokens per day. Build trading signals from indexed data and X activity.',
-            'Build Telegram bots for trading, developer-wallet monitoring, X alerts, and wallet/sniper tracking.',
-            'Develop wallet overviews, P&L calculations and tools to identify linked accounts, bot/farm activity, and unusual developer buys, sells and transfers; analyze liquidity pools and trading strategies.',
-            'Integrate Privy authentication through multiple providers and cross-chain swaps.',
+            'Build Solana/EVM trading and order execution for a platform used by 65k unique wallets, including take-profit and stop-loss orders.',
+            'Develop indexers covering trades, transfers and launches for 30k meme tokens per day; turn indexed data and X activity into trading signals and Telegram alerts.',
+            'Build P&L and wallet-analysis tools to identify linked accounts, bot/farm activity and unusual developer trades.',
+            'Integrate Privy authentication and cross-chain swaps; build React wallet overviews and Telegram trading bots.',
           ],
           stack: 'Rust, Node.js, React, ClickHouse, Redis, Kubernetes; Claude Code / OpenCode',
         },
@@ -96,7 +95,7 @@ export const resumeData = {
           location: '',
           highlights: [
             'Led a remote team of 5–7 engineers delivering trading bots, cross-chain swaps and Web3 applications.',
-            'Made Shogun trade execution 3× faster for 50k+ users through direct RPC calls, quote management and regional latency optimization.',
+            'Reduced Shogun swap execution latency from 1.5 seconds to 100–200 ms through direct RPC calls, quote management and regional latency optimization; infrastructure served 50k+ users.',
             'Built async Rust/Tokio services and EVM/Solana indexers with at-least-once processing, idempotent writes, backpressure and graceful shutdown.',
             'Integrated Jupiter, Raydium, 1inch, Paraswap and deBridge across 8+ chains, including swap SDKs, gas refuel and Jito/MEV protection.',
             'Built REST and WebSocket APIs for React trading interfaces, with typed clients and OpenAPI contracts.',
@@ -160,7 +159,7 @@ export const resumeData = {
       company: 'Earlier experience',
       roles: [
         {
-          title: 'Fullstack Engineer · Usedesk',
+          title: 'Fullstack Engineer · Usedesk (part-time consulting)',
           period: 'Sep 2018 — Mar 2020',
           location: '',
           highlights: ['Built real-time messaging widgets, a chat broker and CRM APIs for customers including Aviasales and Skyeng. React, Vue, PHP, WebSockets.'],
