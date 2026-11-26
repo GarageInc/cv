@@ -27,7 +27,7 @@ export const resumeData = {
   title: 'Staff Backend Engineer | Forward Deployed Engineer',
 
   summary: [
-    'I build backend systems in Rust and TypeScript and adapt them to how customers work. Across 13+ years in software engineering, my work has ranged from integrating payments for exchange operators to leading a team of 5–7 at Haqq Network. At Shogun, I cut swap execution from 1.5 seconds to 100–200 ms.',
+    'I build trading systems in Rust and TypeScript. I cut Shogun trade execution from 1.5 seconds to 0.1–0.2 seconds (100–200 ms). In 13+ years of software engineering, I’ve integrated payments for exchange operators and led a distributed team of 5–7 at Haqq Network.',
   ],
 
   experience: [
@@ -40,8 +40,8 @@ export const resumeData = {
           period: 'Aug 2026 — Present',
           location: '',
           highlights: [
-            'Build Solana and Ethereum Virtual Machine (EVM) trading services for a platform used by 65,000 unique wallets, including take-profit and stop-loss orders.',
-            'Index trades, transfers and launches for 30,000 tokens daily. Combine on-chain events with activity on X to generate trading signals and Telegram alerts.',
+            'Build Solana and Ethereum Virtual Machine (EVM) trading services for Trady, a platform that tracks 65,000 wallets. Implement take-profit and stop-loss orders.',
+            'Index trades, transfers and launches for 30,000 meme tokens daily. Combine on-chain events with activity on X to generate trading signals and Telegram alerts.',
             'Fixed attribution for delegated Solana swaps, including multi-hop trades, so wallet analytics credit the token owner when another account signs the transaction.',
             'Build wallet analytics for profit and loss (P&L), linked accounts and unusual developer trades. Integrate Privy authentication and cross-chain swaps for React trading screens and Telegram bots.',
           ],
