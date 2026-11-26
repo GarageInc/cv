@@ -181,16 +181,23 @@ a:hover {
 }
 
 /* ─── Export button (big, in-document) ─── */
-.doc-export-btn {
+.doc-actions {
   display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+  gap: 0.75rem;
+  margin-top: 1.5rem;
+}
+
+.doc-export-btn {
+  display: inline-flex;
   align-items: center;
   justify-content: center;
   gap: 0.6rem;
-  margin: 1.5rem auto 0;
   padding: 0.75rem 2rem;
   background: var(--color-accent);
   color: #fff;
-  border: none;
+  border: 1px solid transparent;
   border-radius: 4px;
   font-size: 1rem;
   font-weight: 700;
@@ -202,6 +209,22 @@ a:hover {
 
 .doc-export-btn:hover:not(:disabled) {
   background: #1e40af;
+  text-decoration: none;
+}
+
+.doc-google-docs-btn {
+  background: var(--color-bg);
+  color: var(--color-accent);
+  border-color: var(--color-accent);
+}
+
+.doc-google-docs-btn:hover:not(:disabled) {
+  background: var(--color-accent-tint);
+}
+
+.doc-export-btn:focus-visible {
+  outline: 2px solid var(--color-accent);
+  outline-offset: 3px;
 }
 
 .doc-export-btn:disabled {
@@ -588,6 +611,7 @@ a:hover {
 
   .header,
   .footer,
+  .doc-actions,
   .doc-export-btn,
   .doc-anonymous-link {
     display: none !important;

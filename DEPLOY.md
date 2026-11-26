@@ -59,6 +59,11 @@ browser's print dialog for a browser-generated copy.
 The A4 print layout hides navigation and buttons and preserves selectable text.
 Disable the browser's **Headers and footers** option to omit the page URL.
 
+The main page's **Open in Google Docs** button uses `googleDocsUrl` in
+`src/data/profileData.ts`. It opens the linked document in a new tab and is
+hidden in print and on the anonymous CV. Google Docs content is maintained
+separately from the website data.
+
 ## Generated PDFs
 
 `bun run build` generates the website and selectable-text PDFs from
