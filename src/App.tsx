@@ -3,9 +3,6 @@ import { resumeData } from './data/resumeData';
 import type { ResumeProfile } from './data/profileData';
 
 function App({ profile }: { profile?: ResumeProfile }) {
-  const projects = profile
-    ? [...resumeData.projects, ...profile.projects]
-    : resumeData.projects;
   // Uses the browser's own print-to-PDF pipeline so the exported file contains
   // real, selectable text. Canvas-based exporters (html2pdf/html2canvas) emit a
   // rasterized image, which applicant tracking systems parse as a blank page.
@@ -21,9 +18,8 @@ function App({ profile }: { profile?: ResumeProfile }) {
         </a>
         <nav className="header-nav" aria-label="Resume sections">
           <a href="#summary">Summary</a>
-          <a href="#experience">Experience</a>
-          <a href="#projects">Projects</a>
           <a href="#skills">Skills</a>
+          <a href="#experience">Experience</a>
           <a href="#education">Education</a>
           {profile && <a href="#contact">Contact</a>}
         </nav>
@@ -104,15 +100,22 @@ function App({ profile }: { profile?: ResumeProfile }) {
           ))}
         </section>
 
-        {/* Key Achievements */}
-        <div className="achievements-grid">
-          {resumeData.achievements.map((a, i) => (
-            <div key={i} className="achievement-card">
-              <span className="achievement-metric">{a.metric}</span>
-              <span className="achievement-label">{a.label}</span>
-            </div>
-          ))}
-        </div>
+        {/* Technical Skills */}
+        <section className="doc-section" id="skills">
+          <h2 className="doc-section-title">Technical Skills</h2>
+          <div className="skills-table">
+            {resumeData.skills.map((group, i) => (
+              <div key={i} className="skill-row">
+                <span className="skill-category">{group.category}</span>
+                <span className="skill-list">
+                  {group.skills.map((s, k) => (
+                    <span key={k} className="skill-chip">{s}</span>
+                  ))}
+                </span>
+              </div>
+            ))}
+          </div>
+        </section>
 
         {/* Work Experience */}
         <section className="doc-section" id="experience">
@@ -120,7 +123,9 @@ function App({ profile }: { profile?: ResumeProfile }) {
           {resumeData.experience.map((exp, i) => (
             <article key={i} className="exp-entry">
               <div className="exp-company-row">
-                <span className="exp-company">{exp.company}</span>
+                <span className="exp-company">
+                  {exp.url ? <a href={exp.url} target="_blank" rel="noopener noreferrer">{exp.company}</a> : exp.company}
+                </span>
                 {exp.totalDuration && (
                   <span className="exp-duration">{exp.totalDuration}</span>
                 )}
@@ -148,39 +153,6 @@ function App({ profile }: { profile?: ResumeProfile }) {
               ))}
             </article>
           ))}
-        </section>
-
-        {/* Selected Projects */}
-        <section className="doc-section" id="projects">
-          <h2 className="doc-section-title">Selected Products &amp; Code</h2>
-          <ul className="doc-highlights">
-            {projects.map((p, i) => (
-              <li key={i}>
-                <a href={p.url} target="_blank" rel="noopener noreferrer">
-                  <strong>{p.name}</strong>
-                </a>
-                {' — '}
-                {p.description}
-              </li>
-            ))}
-          </ul>
-        </section>
-
-        {/* Technical Skills */}
-        <section className="doc-section" id="skills">
-          <h2 className="doc-section-title">Technical Skills</h2>
-          <div className="skills-table">
-            {resumeData.skills.map((group, i) => (
-              <div key={i} className="skill-row">
-                <span className="skill-category">{group.category}</span>
-                <span className="skill-list">
-                  {group.skills.map((s, k) => (
-                    <span key={k} className="skill-chip">{s}</span>
-                  ))}
-                </span>
-              </div>
-            ))}
-          </div>
         </section>
 
         {/* Education */}

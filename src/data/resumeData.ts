@@ -8,6 +8,7 @@ export interface Role {
 
 export interface ExperienceEntry {
   company: string;
+  url?: string;
   totalDuration?: string;
   roles: Role[];
 }
@@ -22,67 +23,28 @@ export interface Language {
   level: string;
 }
 
-export interface Achievement {
-  metric: string;
-  label: string;
-}
-
-export interface Project {
-  name: string;
-  url: string;
-  description: string;
-}
-
 export const resumeData = {
-  title: 'Senior Backend Engineer · Rust & TypeScript · Trading Systems, Wallets & On-chain Data',
+  title: 'Staff Backend Engineer | Forward Deployed Engineer',
 
   summary: [
-    'Backend engineer with 13+ years of experience building trading systems, wallets and on-chain data products. I build execution services and indexers in Rust and TypeScript/Node.js, with React interfaces for traders.',
-    'Previously at Ankr, XDEFI (now Ctrl) and Santiment. Led remote teams of 5–7 engineers and built Shogun infrastructure serving 50k+ users, reducing swap execution latency from 1.5 seconds to 100–200 ms. Hands-on across architecture, delivery and production support.',
+    'I build backend systems in Rust and TypeScript and adapt them to how customers work. Across 13+ years in software engineering, my work has ranged from integrating payments for exchange operators to leading a team of 5–7 at Haqq Network. At Shogun, I cut swap execution from 1.5 seconds to 100–200 ms.',
   ],
-
-  achievements: [
-    { metric: '13+', label: 'Years in engineering' },
-    { metric: '50k+', label: 'Shogun bot users' },
-    { metric: '100–200 ms', label: 'Swap execution, down from 1.5 s' },
-    { metric: '$6.27B+', label: 'SilentSwap platform volume' },
-    { metric: '65k', label: 'Unique wallets on Trady' },
-    { metric: '30k', label: 'Meme tokens indexed daily' },
-  ] as Achievement[],
-
-  projects: [
-    {
-      name: 'Trady',
-      url: 'https://trady.xyz',
-      description: 'Solana/EVM trading, wallet analytics and on-chain token indexers.',
-    },
-    {
-      name: 'SilentSwap',
-      url: 'https://app.silentswap.com',
-      description: 'Built swap SDKs and cross-chain infrastructure. Platform-reported cumulative swap volume: $6.27B+ (November 2026).',
-    },
-    {
-      name: 'TotalSig',
-      url: 'https://totalsig.com',
-      description: 'Built a multisig wallet from scratch for Bitcoin, Ethereum and Tron, including cross-client signature approval flows.',
-    },
-  ] as Project[],
 
   experience: [
     {
-      company: 'trady.xyz · Meme & social trading',
+      company: 'Trady',
+      url: 'https://trady.xyz',
       roles: [
         {
-          title: 'Fullstack / Backend Engineer',
+          title: 'Full Stack / Backend Engineer',
           period: 'Aug 2026 — Present',
           location: '',
           highlights: [
-            'Build Solana/EVM trading and order execution for a platform used by 65k unique wallets, including take-profit and stop-loss orders.',
-            'Develop indexers covering trades, transfers and launches for 30k meme tokens per day; turn indexed data and X activity into trading signals and Telegram alerts.',
-            'Build P&L and wallet-analysis tools to identify linked accounts, bot/farm activity and unusual developer trades.',
-            'Integrate Privy authentication and cross-chain swaps; build React wallet overviews and Telegram trading bots.',
+            'Build Solana and Ethereum Virtual Machine (EVM) trading services for a platform used by 65,000 unique wallets, including take-profit and stop-loss orders.',
+            'Index trades, transfers and launches for 30,000 tokens daily. Combine on-chain events with activity on X to generate trading signals and Telegram alerts.',
+            'Fixed attribution for delegated Solana swaps, including multi-hop trades, so wallet analytics credit the token owner when another account signs the transaction.',
+            'Build wallet analytics for profit and loss (P&L), linked accounts and unusual developer trades. Integrate Privy authentication and cross-chain swaps for React trading screens and Telegram bots.',
           ],
-          stack: 'Rust, Node.js, React, ClickHouse, Redis, Kubernetes; Claude Code / OpenCode',
         },
       ],
     },
@@ -94,35 +56,53 @@ export const resumeData = {
           period: 'May 2024 — Jul 2026',
           location: '',
           highlights: [
-            'Led a remote team of 5–7 engineers delivering trading bots, cross-chain swaps and Web3 applications.',
-            'Reduced Shogun swap execution latency from 1.5 seconds to 100–200 ms through direct RPC calls, quote management and regional latency optimization; infrastructure served 50k+ users.',
-            'Built async Rust/Tokio services and EVM/Solana indexers with at-least-once processing, idempotent writes, backpressure and graceful shutdown.',
-            'Integrated Jupiter, Raydium, 1inch, Paraswap and deBridge across 8+ chains, including swap SDKs, gas refuel and Jito/MEV protection.',
-            'Built REST and WebSocket APIs for React trading interfaces, with typed clients and OpenAPI contracts.',
+            'Led a distributed team across engineering, QA and operations to deliver a validator dashboard, on-chain governance and airdrop tools.',
+            'Built asynchronous Rust services and blockchain indexers with idempotent writes, backpressure and graceful shutdown. Exposed trading data through REST and WebSocket APIs with typed clients.',
           ],
-          stack: 'Rust/Tokio, TypeScript, Node.js/Bun, React/Next.js, PostgreSQL, Redis, ClickHouse, gRPC, WebSockets, RabbitMQ, GCP/AWS',
         },
         {
-          title: 'Senior Fullstack Engineer',
+          title: 'Senior Full Stack Engineer',
           period: 'Jun 2023 — May 2024',
           location: '',
           highlights: [
             'Built multisig wallets, portfolio trackers and DeFi integrations across EVM, Bitcoin, Cosmos and TON.',
-            'Scaled Tonchemy, a Telegram mini-app, to ~240k registered users (~12k MAU); wrote TON contracts for NFTs and jettons.',
+            'Scaled Tonchemy, a Telegram mini-app, to about 240,000 registered users and 12,000 monthly active users. Wrote TON contracts for in-game NFTs and tokens.',
           ],
         },
       ],
     },
     {
+      company: 'Intensity Labs',
+      roles: [{
+        title: 'Senior Blockchain Developer (consulting)',
+        period: 'Jun 2024 — Jul 2025',
+        location: '',
+        highlights: [
+          'Replaced third-party API calls with direct RPC requests and tuned quote handling and regional routing to cut execution latency for Shogun’s 50,000+ users.',
+          'Built swap SDKs and transaction indexers across 8+ chains, integrating Jupiter, Raydium, 1inch, ParaSwap and deBridge. Added fee calculation, gas refills and Jito protection for Solana trades.',
+        ],
+      }],
+    },
+    {
+      company: 'TotalSig',
+      url: 'https://totalsig.com',
+      roles: [{
+        title: 'Co-founder / Full Stack Developer',
+        period: 'May 2023 — Oct 2023',
+        location: '',
+        highlights: ['Built a non-custodial multisignature browser wallet from scratch for Bitcoin, Ethereum and Tron. Implemented cross-client signature approvals using secp256k1 ECDSA.'],
+      }],
+    },
+    {
       company: 'XDEFI Wallet (now Ctrl)',
       roles: [
         {
-          title: 'Senior Fullstack Engineer',
-          period: 'Apr 2022 — May 2023',
+          title: 'Senior Full Stack Engineer',
+          period: 'Dec 2021 — May 2023',
           location: '',
           highlights: [
             'Built swap, staking and portfolio features for a browser-extension wallet supporting 10+ networks, including an in-wallet swap aggregator.',
-            'Led the Manifest V2 → V3 migration and built a reusable wallet connector with hardware-wallet support, signing and nonce management.',
+            'Led the Manifest V2 to V3 migration and built a reusable wallet connector with hardware-wallet support, signing and nonce management.',
           ],
         },
       ],
@@ -131,12 +111,12 @@ export const resumeData = {
       company: 'Ankr',
       roles: [
         {
-          title: 'Senior Fullstack Engineer → Team Lead',
+          title: 'Senior Full Stack Engineer, promoted to Team Lead',
           period: 'May 2021 — Apr 2022',
           location: '',
           highlights: [
             'Led 3 engineers building blockchain explorers and indexing/data layers for 10+ networks.',
-            'Deployed 50+ Solidity contracts across 5+ EVM chains for liquidity, staking and governance; built DeFi integrations for Onx.Finance.',
+            'Deployed 50+ Solidity contracts across 5+ EVM chains for liquidity, staking and governance. Built DeFi integrations for Onx.Finance.',
           ],
         },
       ],
@@ -145,62 +125,64 @@ export const resumeData = {
       company: 'Santiment',
       roles: [
         {
-          title: 'Senior Fullstack Engineer',
+          title: 'Senior Full Stack Engineer',
           period: 'Jun 2019 — May 2021',
           location: '',
           highlights: [
-            'Built charting components and dashboards for app.santiment.net, exposing hundreds of on-chain and market metrics, signals and alerts.',
-            'Developed real-time CEX deposit/withdrawal tracking and data integrations over GraphQL and WebSockets.',
+            'Built React charts, dashboards and alerts for hundreds of on-chain and market metrics.',
+            'Streamed exchange deposits and withdrawals into trader dashboards using GraphQL and WebSockets.',
           ],
         },
       ],
     },
     {
+      company: 'Usedesk',
+      roles: [
+        {
+          title: 'Full Stack Engineer (part-time consulting)',
+          period: 'Sep 2018 — Mar 2020',
+          location: '',
+          highlights: ['Built real-time chat widgets, a messaging broker and CRM APIs in React, Vue and PHP for customers including Aviasales and Skyeng.'],
+        },
+      ],
+    },
+    {
+      company: 'Studio Mobile',
+      roles: [{
+        title: 'Full Stack Engineer',
+        period: 'Oct 2018 — May 2019',
+        location: '',
+        highlights: ['Adapted trading platforms for exchange operators. Integrated wallets, payments and identity verification, customized order matching and automated deployments on AWS.'],
+      }],
+    },
+    {
       company: 'Earlier experience',
       roles: [
         {
-          title: 'Fullstack Engineer · Usedesk (part-time consulting)',
-          period: 'Sep 2018 — Mar 2020',
-          location: '',
-          highlights: ['Built real-time messaging widgets, a chat broker and CRM APIs for customers including Aviasales and Skyeng. React, Vue, PHP, WebSockets.'],
-        },
-        {
-          title: 'Software Engineer · Ambaha, Polis24, BARS Group & freelance',
+          title: 'Software Engineer | Ambaha, Polis24, BARS Group & freelance',
           period: '2013 — 2018',
           location: '',
-          highlights: ['Delivered sports-data services, payment-terminal software, CRMs and reporting systems. C#/.NET, JavaScript, Angular, Scala, SQL.'],
+          highlights: ['Rebuilt Think Ministry’s CRM in .NET and Angular around its recurring payments and donations workflows. Delivered sports-data services, payment-terminal software and financial reporting systems using C#, Scala and SQL.'],
         },
       ],
     },
   ] as ExperienceEntry[],
 
   skills: [
-    {
-      category: 'Core',
-      skills: ['Rust / Tokio / async', 'TypeScript / Node.js', 'React / Next.js', 'SQL', 'Solidity'],
-    },
-    {
-      category: 'Data & backend',
-      skills: ['PostgreSQL', 'ClickHouse', 'Redis', 'Kafka / RabbitMQ', 'REST / OpenAPI', 'gRPC / WebSockets', 'On-chain indexers'],
-    },
-    {
-      category: 'Trading & Web3',
-      skills: ['Solana / EVM / Bitcoin / Tron / Sui / Cosmos', 'Order execution', 'DEX / cross-chain swaps', 'Wallets / Privy', 'MEV / Jito', 'P&L analytics'],
-    },
-    {
-      category: 'Delivery',
-      skills: ['Kubernetes / Docker', 'AWS / GCP', 'CI/CD', 'Prometheus / Grafana', 'Jest / Playwright', 'Claude Code / OpenCode'],
-    },
+    { category: 'Languages', skills: ['Rust (Tokio)', 'TypeScript', 'JavaScript', 'SQL', 'Solidity'] },
+    { category: 'APIs & data', skills: ['Node.js', 'REST', 'OpenAPI', 'gRPC', 'WebSockets', 'PostgreSQL', 'ClickHouse', 'Redis', 'Kafka', 'RabbitMQ'] },
+    { category: 'Infrastructure', skills: ['Docker', 'Kubernetes', 'AWS', 'GCP', 'CI/CD', 'Prometheus', 'Grafana'] },
+    { category: 'Frontend & testing', skills: ['React', 'Next.js', 'Jest', 'Playwright'] },
   ] as SkillGroup[],
 
   education: {
     institution: 'Kazan State University',
-    degree: "Bachelor’s degree, Computer and Information Systems Security",
+    degree: "Bachelor’s degree in Computer and Information Systems Security",
     period: '2012 — 2016',
   },
 
   languages: [
-    { name: 'English', level: 'Full Professional' },
+    { name: 'English', level: 'Full professional proficiency' },
     { name: 'Russian', level: 'Native' },
   ] as Language[],
 };

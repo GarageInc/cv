@@ -1,5 +1,3 @@
-import type { Project } from './resumeData';
-
 export interface ResumeProfile {
   name: string;
   initials: string;
@@ -11,7 +9,6 @@ export interface ResumeProfile {
     linkedin: string;
     github: string;
   };
-  projects: Project[];
 }
 
 // Personal information belongs only to the main page's entry point.
@@ -27,11 +24,4 @@ export const profileData: ResumeProfile = {
     linkedin: 'https://www.linkedin.com/in/rfihtengolts',
     github: 'https://github.com/GarageInc',
   },
-  projects: [
-    {
-      name: 'Rust stream consumer',
-      url: 'https://github.com/GarageInc/stream-consumer',
-      description: 'Public code sample: Tokio, at-least-once processing, idempotent writes, backpressure and graceful shutdown.',
-    },
-  ],
 };

@@ -273,54 +273,6 @@ a:hover {
   margin-bottom: 0.75rem;
 }
 
-.doc-highlights {
-  list-style: disc;
-  padding-left: 1.25rem;
-}
-
-.doc-highlights li {
-  font-size: 0.9rem;
-  line-height: 1.55;
-  color: var(--color-text);
-  margin-bottom: 0.25rem;
-}
-
-/* ─── Key Achievements ─── */
-.achievements-grid {
-  display: grid;
-  grid-template-columns: repeat(3, 1fr);
-  gap: 0.75rem;
-  margin-bottom: 1.75rem;
-  padding: 1rem 0;
-  border-bottom: 1px solid var(--color-border-light);
-}
-
-.achievement-card {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  text-align: center;
-  padding: 0.85rem 0.5rem;
-  background: var(--color-accent-tint);
-  border: 1px solid #dbe5ff;
-  border-radius: 6px;
-}
-
-.achievement-metric {
-  font-size: 1.45rem;
-  font-weight: 800;
-  color: var(--color-accent);
-  line-height: 1.2;
-}
-
-.achievement-label {
-  font-size: 0.75rem;
-  color: var(--color-text-muted);
-  margin-top: 0.25rem;
-  line-height: 1.3;
-  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
-}
-
 /* ─── Experience ─── */
 .exp-entry {
   margin-bottom: 1.25rem;
@@ -581,9 +533,6 @@ a:hover {
     gap: 0;
   }
 
-  .achievements-grid {
-    grid-template-columns: repeat(2, 1fr);
-  }
 }
 
 /* ─── Print / PDF export ─────────────────────────────────────────────────
@@ -644,31 +593,14 @@ a:hover {
   }
 
   .doc-summary,
-  .doc-highlights li,
   .exp-role-highlights li {
     font-size: 9.5pt;
     line-height: 1.35;
   }
 
   .exp-stack,
-  .skill-chip,
-  .achievement-label {
+  .skill-chip {
     font-size: 8pt;
-  }
-
-  .achievements-grid {
-    grid-template-columns: repeat(3, 1fr);
-    gap: 0.4rem;
-    margin-bottom: 0.9rem;
-    padding: 0.5rem 0;
-  }
-
-  .achievement-card {
-    padding: 0.6rem 0.3rem;
-  }
-
-  .achievement-metric {
-    font-size: 12pt;
   }
 
   .skill-row {
@@ -737,9 +669,7 @@ a:hover {
 
   .exp-entry,
   .exp-role,
-  .skill-row,
-  .doc-highlights li,
-  .achievement-card {
+  .skill-row {
     break-inside: avoid;
     page-break-inside: avoid;
   }

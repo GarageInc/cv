@@ -1,4 +1,4 @@
-"""Generate selectable-text PDFs from the same data used by the website."""
+"""Generate a single-column, selectable-text CV from the website data."""
 
 import json
 from pathlib import Path
@@ -7,14 +7,9 @@ import subprocess
 from xml.sax.saxutils import escape
 
 from reportlab.lib import colors
-from reportlab.lib.enums import TA_CENTER, TA_RIGHT
 from reportlab.lib.pagesizes import A4
 from reportlab.lib.styles import ParagraphStyle
-from reportlab.platypus import (
-    HRFlowable, KeepTogether, PageBreak, Paragraph, SimpleDocTemplate, Spacer,
-    Table, TableStyle,
-)
-
+from reportlab.platypus import HRFlowable, KeepTogether, PageBreak, Paragraph, SimpleDocTemplate, Spacer
 
 ROOT = Path(__file__).resolve().parent.parent
 DATA = json.loads(subprocess.check_output([
@@ -23,126 +18,83 @@ DATA = json.loads(subprocess.check_output([
     "import { profileData } from './src/data/profileData.ts';"
     "console.log(JSON.stringify({ resume: resumeData, profile: profileData }));",
 ], cwd=ROOT, text=True))
-BLUE = colors.HexColor('#1e40af')
-TEXT = colors.HexColor('#334155')
-MUTED = colors.HexColor('#64748b')
-WIDTH = A4[0] - 68
+
+INK = colors.HexColor('#192837')
+BLUE = colors.HexColor('#234f72')
+MUTED = colors.HexColor('#405669')
 
 
 def html(value):
-    for old, new in [('–', '-'), ('—', '-'), ('→', 'to'), ('\u00a0', ' ')]:
-        value = value.replace(old, new)
-    return escape(value)
+    return escape(value.replace('—', '-').replace('–', '-').replace('’', "'"))
 
 
 def style(name, **options):
-    defaults = dict(fontName='Helvetica', fontSize=9, leading=12, textColor=TEXT)
+    defaults = dict(fontName='Helvetica', fontSize=10.7, leading=14.5, textColor=INK)
     return ParagraphStyle(name, **(defaults | options))
 
 
-BODY = style('body', spaceAfter=5)
-SECTION = style('section', fontName='Helvetica-Bold', fontSize=10, leading=13,
-                textColor=BLUE, spaceBefore=10, spaceAfter=6, keepWithNext=True)
-COMPANY = style('company', fontName='Helvetica-Bold', fontSize=10, leading=13,
-                textColor=BLUE, spaceBefore=7, spaceAfter=3, keepWithNext=True)
-BULLET = style('bullet', leftIndent=10, firstLineIndent=0, bulletIndent=0,
-               spaceAfter=2)
-SMALL = style('small', fontSize=7.8, leading=10, textColor=MUTED)
+NAME = style('name', fontName='Helvetica-Bold', fontSize=24, leading=29)
+TITLE = style('title', fontSize=15, leading=20, textColor=BLUE, spaceAfter=4)
+CONTACT = style('contact', fontSize=9.5, leading=13, textColor=MUTED)
+BODY = style('body')
+SECTION = style('section', fontName='Helvetica-Bold', fontSize=12, leading=15,
+                textColor=BLUE, spaceBefore=11, spaceAfter=4, keepWithNext=True)
+COMPANY = style('company', fontName='Helvetica-Bold', fontSize=12, leading=15,
+                spaceBefore=10, spaceAfter=1, keepWithNext=True)
+ROLE = style('role', fontSize=10, leading=13, textColor=MUTED, spaceAfter=3,
+             keepWithNext=True)
+BULLET = style('bullet', leftIndent=11, bulletIndent=1, spaceAfter=2)
+DETAIL = style('detail', fontSize=10, leading=13, spaceAfter=2)
 
 
-def paragraph(value, paragraph_style=BODY):
-    return Paragraph(html(value), paragraph_style)
+def heading(title):
+    return Paragraph(html(title), SECTION)
 
 
-def heading(value):
-    return Paragraph(value.upper(), SECTION)
-
-
-def row(left, right, bold=False):
-    title_style = style('row-title', fontName='Helvetica-Bold' if bold else 'Helvetica-Oblique')
-    date_style = style('date', fontSize=8, textColor=MUTED, alignment=TA_RIGHT)
-    table = Table([[paragraph(left, title_style), paragraph(right, date_style)]],
-                  colWidths=[WIDTH - 130, 130])
-    table.setStyle(TableStyle([
-        ('LEFTPADDING', (0, 0), (-1, -1), 0),
-        ('RIGHTPADDING', (0, 0), (-1, -1), 0),
-        ('TOPPADDING', (0, 0), (-1, -1), 1),
-        ('BOTTOMPADDING', (0, 0), (-1, -1), 3),
-        ('VALIGN', (0, 0), (-1, -1), 'TOP'),
-    ]))
-    table.keepWithNext = True
-    return table
+def link(url, label):
+    return f'<a href="{html(url)}" color="#234f72">{html(label)}</a>'
 
 
 def export_pdf(path, anonymous=False):
     resume, profile = DATA['resume'], DATA['profile']
     name = 'Curriculum Vitae' if anonymous else profile['name']
-    story = [paragraph(name, style('name', fontName='Helvetica-Bold', fontSize=18,
-                                   leading=23, alignment=TA_CENTER, textColor=colors.HexColor('#0f172a'))),
-             paragraph(resume['title'], style('title', fontSize=9, leading=12,
-                                              alignment=TA_CENTER, textColor=BLUE)), Spacer(1, 7)]
+    story = [Paragraph(html(name), NAME), Paragraph(html(resume['title']), TITLE)]
     if not anonymous:
-        links = profile['contact']
-        contacts = [f'<a href="mailto:{html(links["email"])}">{html(links["email"])}</a>', html(profile['location'])]
-        for key in ('linkedin', 'github', 'telegram'):
-            url = links[key]
-            label = url.removeprefix('https://').removeprefix('www.')
-            contacts.append(f'<a href="{html(url)}">{html(label)}</a>')
-        story += [Paragraph(' &nbsp; | &nbsp; '.join(contacts),
-                            style('contacts', fontSize=7.3, leading=10, alignment=TA_CENTER)), Spacer(1, 7)]
-    story += [HRFlowable(width='100%', thickness=1.5, color=BLUE), heading('Professional Summary')]
-    story += [paragraph(text) for text in resume['summary']]
+        contacts = profile['contact']
+        email = contacts['email']
+        story.append(Paragraph(' | '.join([html(profile['location']), link('mailto:' + email, email),
+                                           link(contacts['telegram'], contacts['telegram'].removeprefix('https://'))]), CONTACT))
+        profiles = [link(contacts[key], contacts[key].removeprefix('https://').removeprefix('www.'))
+                    for key in ('linkedin', 'github')]
+        story.append(Paragraph(' | '.join(profiles), CONTACT))
 
-    metric_style = style('metric', fontName='Helvetica-Bold', fontSize=11,
-                         leading=15, textColor=BLUE, alignment=TA_CENTER)
-    label_style = style('label', fontSize=7, leading=9, alignment=TA_CENTER, textColor=MUTED)
-    cards = [[Paragraph(html(item['metric']), metric_style),
-              Paragraph(html(item['label']), label_style)] for item in resume['achievements']]
-    metrics = Table([cards], colWidths=[WIDTH / len(cards)] * len(cards))
-    metrics.setStyle(TableStyle([
-        ('BACKGROUND', (0, 0), (-1, -1), colors.HexColor('#eff4ff')),
-        ('BOX', (0, 0), (-1, -1), 0.5, colors.HexColor('#dbe5ff')),
-        ('INNERGRID', (0, 0), (-1, -1), 2, colors.white),
-        ('VALIGN', (0, 0), (-1, -1), 'TOP'),
-        ('TOPPADDING', (0, 0), (-1, -1), 8),
-        ('BOTTOMPADDING', (0, 0), (-1, -1), 8),
-    ]))
-    story += [Spacer(1, 5), metrics, heading('Work Experience')]
-    for index, experience in enumerate(resume['experience']):
-        if index == 2:
-            story.append(PageBreak())
-        story.append(paragraph(experience['company'], COMPANY))
-        for role in experience['roles']:
-            role_story = [row(role['title'], role['period'])]
-            role_story += [Paragraph(html(text), BULLET, bulletText='•') for text in role['highlights']]
-            if role.get('stack'):
-                role_story.append(paragraph('Stack: ' + role['stack'], SMALL))
-            story.append(KeepTogether(role_story))
-
-    story.append(heading('Selected Products & Code'))
-    projects = resume['projects'] + ([] if anonymous else profile['projects'])
-    for project in projects:
-        text = f'<b><a href="{html(project["url"])}">{html(project["name"])}</a></b> - {html(project["description"])}'
-        story.append(Paragraph(text, BULLET, bulletText='•'))
-
+    story.extend([Spacer(1, 7), HRFlowable(width='100%', thickness=1, color=BLUE),
+                  heading('Professional Summary')])
+    story.extend(Paragraph(html(text), BODY) for text in resume['summary'])
     story.append(heading('Technical Skills'))
-    skill_rows = [[Paragraph(f'<b>{html(group["category"])}</b>', SMALL),
-                   paragraph(' · '.join(group['skills']), SMALL)] for group in resume['skills']]
-    skills = Table(skill_rows, colWidths=[90, WIDTH - 90])
-    skills.setStyle(TableStyle([
-        ('VALIGN', (0, 0), (-1, -1), 'TOP'),
-        ('LEFTPADDING', (0, 0), (-1, -1), 0),
-        ('RIGHTPADDING', (0, 0), (-1, -1), 4),
-        ('BOTTOMPADDING', (0, 0), (-1, -1), 5),
-    ]))
-    story += [skills, heading('Education')]
+    for group in resume['skills']:
+        story.append(Paragraph(f'<b>{html(group["category"])}</b> &nbsp; {html(", ".join(group["skills"]))}', DETAIL))
+
+    story.append(heading('Work Experience'))
+    for entry in resume['experience']:
+        if entry['company'] == 'TotalSig':
+            story.extend([PageBreak(), heading('Work Experience (continued)')])
+        company = link(entry['url'], entry['company']) if 'url' in entry else html(entry['company'])
+        block = [Paragraph(company, COMPANY)]
+        for role in entry['roles']:
+            block.append(Paragraph(f'{html(role["title"])} &nbsp; | &nbsp; {html(role["period"])}', ROLE))
+            block.extend(Paragraph(html(text), BULLET, bulletText='•') for text in role['highlights'])
+        story.append(KeepTogether(block))
+
     education = resume['education']
-    story += [row(education['institution'], education['period'], bold=True), paragraph(education['degree'])]
-    story.append(paragraph(' · '.join(f'{item["name"]}: {item["level"]}' for item in resume['languages'])))
+    story.extend([heading('Education'),
+                  Paragraph(f'<b>{html(education["institution"])}</b> &nbsp; | &nbsp; {html(education["period"])}', DETAIL),
+                  Paragraph(html(education['degree']), DETAIL), heading('Languages'),
+                  Paragraph(' &nbsp; | &nbsp; '.join(html(f'{item["name"]}: {item["level"]}') for item in resume['languages']), DETAIL)])
 
     path.parent.mkdir(parents=True, exist_ok=True)
-    document = SimpleDocTemplate(str(path), pagesize=A4, leftMargin=34, rightMargin=34,
-                                 topMargin=30, bottomMargin=30, title=name + ' - CV',
+    document = SimpleDocTemplate(str(path), pagesize=A4, leftMargin=35, rightMargin=35,
+                                 topMargin=26, bottomMargin=27, title=name + ' - ' + resume['title'],
                                  author='' if anonymous else profile['name'])
     document.build(story)
     print(f'Generated {path.relative_to(ROOT)}')
