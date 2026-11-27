@@ -60,13 +60,13 @@ function App({ profile }: { profile?: ResumeProfile }) {
               className="doc-export-btn"
               aria-label="Export resume as PDF"
             >
-              <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true">
+              <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true">
                 <path d="M14 2H6a2 2 0 00-2 2v16a2 2 0 002 2h12a2 2 0 002-2V8z" />
                 <polyline points="14 2 14 8 20 8" />
                 <line x1="12" y1="18" x2="12" y2="12" />
                 <polyline points="9 15 12 18 15 15" />
               </svg>
-              Export Resume in PDF
+              Export PDF
             </button>
             {profile?.googleDocsUrl && (
               <a
@@ -76,20 +76,20 @@ function App({ profile }: { profile?: ResumeProfile }) {
                 rel="noopener noreferrer"
                 aria-label="Open resume in Google Docs (opens in a new tab)"
               >
-                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true">
+                <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true">
                   <path d="M14 2H6a2 2 0 00-2 2v16a2 2 0 002 2h12a2 2 0 002-2V8z" />
                   <polyline points="14 2 14 8 20 8" />
                   <path d="M8 13h8M8 17h6" />
                 </svg>
-                Open in Google Docs
+                Google Docs
+              </a>
+            )}
+            {profile && (
+              <a className="doc-anonymous-link" href={`${import.meta.env.BASE_URL}anonymous/`}>
+                Anonymous CV
               </a>
             )}
           </div>
-          {profile && (
-            <a className="doc-anonymous-link" href={`${import.meta.env.BASE_URL}anonymous/`}>
-              Anonymous CV
-            </a>
-          )}
         </div>
 
         {/* Professional Summary */}
