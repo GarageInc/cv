@@ -77,7 +77,7 @@ def export_pdf(path, anonymous=False):
 
     story.append(heading('Work Experience'))
     for entry in resume['experience']:
-        if entry['company'] == 'TotalSig':
+        if entry['company'] == 'Ankr':
             story.extend([PageBreak(), heading('Work Experience (continued)')])
         company = link(entry['url'], entry['company']) if 'url' in entry else html(entry['company'])
         block = [Paragraph(company, COMPANY)]

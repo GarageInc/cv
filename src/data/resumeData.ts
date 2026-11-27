@@ -36,14 +36,13 @@ export const resumeData = {
       url: 'https://trady.xyz',
       roles: [
         {
-          title: 'Full Stack / Backend Engineer',
-          period: 'Aug 2026 — Present',
+          title: 'Full Stack Engineer (contract)',
+          period: 'Aug 2026 — Nov 2026',
           location: '',
           highlights: [
-            'Build Solana and Ethereum Virtual Machine (EVM) trading services for Trady, a platform that tracks 65,000 wallets. Implement take-profit and stop-loss orders.',
-            'Index trades, transfers and launches for 30,000 meme tokens daily. Combine on-chain events with activity on X to generate trading signals and Telegram alerts.',
-            'Fixed attribution for delegated Solana swaps, including multi-hop trades, so wallet analytics credit the token owner when another account signs the transaction.',
-            'Build wallet analytics for profit and loss (P&L), linked accounts and unusual developer trades. Integrate Privy authentication and cross-chain swaps for React trading screens and Telegram bots.',
+            'Built Solana and EVM trading services for a platform that tracked 65,000 wallets. Implemented take-profit and stop-loss orders and integrated Privy wallet authentication.',
+            'Indexed trades, transfers and launches for 30,000 meme tokens daily. Fixed attribution for delegated Solana swaps so wallet analytics credited the token owner.',
+            'Built a Telegram trading bot and tracker for token developers’ trades, transfers and posts on X. Traders could buy or sell directly from alerts.',
           ],
         },
       ],
@@ -52,57 +51,37 @@ export const resumeData = {
       company: 'Haqq Network',
       roles: [
         {
-          title: 'Staff Engineer / Team Lead',
+          title: 'Team Lead / Hands-on Fullstack Engineer',
           period: 'May 2024 — Jul 2026',
           location: '',
           highlights: [
-            'Led a distributed team across engineering, QA and operations to deliver a validator dashboard, on-chain governance and airdrop tools.',
-            'Built asynchronous Rust services and blockchain indexers with idempotent writes, backpressure and graceful shutdown. Exposed trading data through REST and WebSocket APIs with typed clients.',
+            'Led five developers and worked with QA and DevOps to deliver a validator dashboard, on-chain governance and airdrop tools.',
+            'Built Shogun, a Solana and EVM trading bot serving 50,000+ users. Reduced swap latency with direct RPC calls, quote management and regional routing.',
+            'Built swap SDKs and transaction indexers across 8+ chains. Integrated Jupiter, Raydium, 1inch, ParaSwap and deBridge, and added Jito protection for Solana trades.',
+            'Built asynchronous Rust services with idempotent writes and backpressure. Exposed trading data through REST and WebSocket APIs.',
           ],
         },
         {
-          title: 'Senior Full Stack Engineer',
+          title: 'Senior Fullstack Engineer',
           period: 'Jun 2023 — May 2024',
           location: '',
           highlights: [
-            'Built multisig wallets, portfolio trackers and DeFi integrations across EVM, Bitcoin, Cosmos and TON.',
-            'Scaled Tonchemy, a Telegram mini-app, to about 240,000 registered users and 12,000 monthly active users. Wrote TON contracts for in-game NFTs and tokens.',
+            'Built TotalSig, a multisignature browser wallet for Bitcoin, Ethereum and Tron, with cross-client signature approvals.',
+            'Led multichain integrations and transaction analytics for Firoza Finance. Connected exchange APIs to the Unspent portfolio tracker.',
+            'Built Tonchemy, a Telegram mini-app with about 240,000 registered users and 12,000 monthly active users. Wrote TON contracts for in-game tokens and NFTs.',
           ],
         },
       ],
     },
     {
-      company: 'Intensity Labs',
-      roles: [{
-        title: 'Senior Blockchain Developer (consulting)',
-        period: 'Jun 2024 — Jul 2025',
-        location: '',
-        highlights: [
-          'Replaced third-party API calls with direct RPC requests and tuned quote handling and regional routing to cut execution latency for Shogun’s 50,000+ users.',
-          'Built swap SDKs and transaction indexers across 8+ chains, integrating Jupiter, Raydium, 1inch, ParaSwap and deBridge. Added fee calculation, gas refills and Jito protection for Solana trades.',
-        ],
-      }],
-    },
-    {
-      company: 'TotalSig',
-      url: 'https://totalsig.com',
-      roles: [{
-        title: 'Co-founder / Full Stack Developer',
-        period: 'May 2023 — Oct 2023',
-        location: '',
-        highlights: ['Built a non-custodial multisignature browser wallet from scratch for Bitcoin, Ethereum and Tron. Implemented cross-client signature approvals using secp256k1 ECDSA.'],
-      }],
-    },
-    {
       company: 'XDEFI Wallet (now Ctrl)',
       roles: [
         {
-          title: 'Senior Full Stack Engineer',
-          period: 'Dec 2021 — May 2023',
+          title: 'Senior Frontend Developer, Blockchain & Web3 Wallets',
+          period: 'Apr 2022 — May 2023',
           location: '',
           highlights: [
-            'Built swap, staking and portfolio features for a browser-extension wallet supporting 10+ networks, including an in-wallet swap aggregator.',
-            'Led the Manifest V2 to V3 migration and built a reusable wallet connector with hardware-wallet support, signing and nonce management.',
+            'Built an in-wallet swap aggregator for a browser extension supporting 10+ networks. Led its migration from Manifest V2 to V3 and developed a reusable connector for hardware wallets and transaction signing.',
           ],
         },
       ],
@@ -111,12 +90,19 @@ export const resumeData = {
       company: 'Ankr',
       roles: [
         {
-          title: 'Senior Full Stack Engineer, promoted to Team Lead',
-          period: 'May 2021 — Apr 2022',
+          title: 'Team Lead',
+          period: 'Oct 2021 — Apr 2022',
           location: '',
           highlights: [
-            'Led 3 engineers building blockchain explorers and indexing/data layers for 10+ networks.',
-            'Deployed 50+ Solidity contracts across 5+ EVM chains for liquidity, staking and governance. Built DeFi integrations for Onx.Finance.',
+            'Led three developers building explorers for 10+ networks. Deployed 50+ Solidity contracts across 5+ EVM chains for liquidity pools, staking and governance.',
+          ],
+        },
+        {
+          title: 'Senior Fullstack Developer',
+          period: 'May 2021 — Oct 2021',
+          location: '',
+          highlights: [
+            'Built liquidity pools for ONX Finance and integrated exchange protocols including Uniswap and SushiSwap.',
           ],
         },
       ],
@@ -125,12 +111,11 @@ export const resumeData = {
       company: 'Santiment',
       roles: [
         {
-          title: 'Senior Full Stack Engineer',
+          title: 'Senior Blockchain Developer',
           period: 'Jun 2019 — May 2021',
           location: '',
           highlights: [
-            'Built React charts, dashboards and alerts for hundreds of on-chain and market metrics.',
-            'Streamed exchange deposits and withdrawals into trader dashboards using GraphQL and WebSockets.',
+            'Built React dashboards for hundreds of market and on-chain metrics. Streamed exchange deposits and withdrawals into trader dashboards using GraphQL and WebSockets.',
           ],
         },
       ],
@@ -139,30 +124,58 @@ export const resumeData = {
       company: 'Usedesk',
       roles: [
         {
-          title: 'Full Stack Engineer (part-time consulting)',
+          title: 'Fullstack PHP / React / Vue Developer (part-time)',
           period: 'Sep 2018 — Mar 2020',
           location: '',
-          highlights: ['Built real-time chat widgets, a messaging broker and CRM APIs in React, Vue and PHP for customers including Aviasales and Skyeng.'],
+          highlights: [
+            'Built chat widgets, a messaging broker and CRM APIs for a support platform used by Aviasales and Skyeng.',
+          ],
         },
       ],
     },
     {
-      company: 'Studio Mobile',
-      roles: [{
-        title: 'Full Stack Engineer',
-        period: 'Oct 2018 — May 2019',
-        location: '',
-        highlights: ['Adapted trading platforms for exchange operators. Integrated wallets, payments and identity verification, customized order matching and automated deployments on AWS.'],
-      }],
-    },
-    {
-      company: 'Earlier experience',
+      company: 'Ambaha IT-Solutions',
       roles: [
         {
-          title: 'Software Engineer | Ambaha, Polis24, BARS Group & freelance',
-          period: '2013 — 2018',
+          title: 'Fullstack Developer (.NET / Angular) / DevOps',
+          period: 'Sep 2016 — Jun 2018',
           location: '',
-          highlights: ['Rebuilt Think Ministry’s CRM in .NET and Angular around its recurring payments and donations workflows. Delivered sports-data services, payment-terminal software and financial reporting systems using C#, Scala and SQL.'],
+          highlights: [
+            'Integrated wallets, payments and identity verification for exchange clients. Rebuilt Think Ministry’s payments and donations CRM in .NET and Angular and developed sports-data services for LSports.',
+          ],
+        },
+      ],
+    },
+    {
+      company: 'Polis24',
+      roles: [
+        {
+          title: 'Software Engineer (Full Stack)',
+          period: 'Sep 2015 — Oct 2016',
+          location: '',
+          highlights: ['Built payment terminal software, operator dashboards and Scala services for processing insurance payments.'],
+        },
+      ],
+    },
+    {
+      company: 'Freelance software development',
+      roles: [
+        {
+          title: 'Self-employed Software Engineer',
+          period: 'Feb 2013 — Nov 2015',
+          location: '',
+          highlights: ['Built a mobile bookstore app, warehouse inventory systems and an internal CRM for freelance work.'],
+        },
+      ],
+    },
+    {
+      company: 'BARS Group',
+      roles: [
+        {
+          title: 'ASP.NET / Ext JS Developer (part-time)',
+          period: 'Oct 2014 — Jun 2015',
+          location: '',
+          highlights: ['Built C# modules for budget reporting, SQL migrations and stored procedures in Oracle and PostgreSQL.'],
         },
       ],
     },
@@ -176,7 +189,7 @@ export const resumeData = {
   ] as SkillGroup[],
 
   education: {
-    institution: 'Kazan State University',
+    institution: 'State University',
     degree: "Bachelor’s degree in Computer and Information Systems Security",
     period: '2012 — 2016',
   },
